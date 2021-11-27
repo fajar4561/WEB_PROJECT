@@ -46,7 +46,7 @@ include '../komponen/header.php';
                 <div class="card-body py-4">
                   <div class="tab-content">
                     <div class="tab-pane active px-sm-3 px-md-5" role="tabpanel" aria-labelledby="bootstrap-wizard-tab1" id="bootstrap-wizard-tab1">
-                      <form novalidate="novalidate">
+                      <form novalidate="novalidate" method="post" action="../aksi/tambah-pegawai" enctype="multipart/form-data">
                         <div class="mb-3">
                           <label class="form-label" for="bootstrap-wizard-wizard-name">Nama*</label>
                           <input class="form-control" type="text" name="nama" placeholder="Nama Lengkap Pegawai" required="required" />
@@ -85,7 +85,7 @@ include '../komponen/header.php';
                         <div class="mb-3">
                           <div class="row" data-dropzone="data-dropzone" data-options='{"maxFiles":1,"data":[{"name":"avatar.png","size":"54kb","url":"../assets/img/team"}]}'>
                             <div class="fallback">
-                              <input type="file" name="file" />
+                              <input type="file" name="foto" />
                             </div>
                             <div class="col-md-auto">
                               <div class="dz-preview dz-preview-single">
