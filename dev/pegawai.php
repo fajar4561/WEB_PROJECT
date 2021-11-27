@@ -75,6 +75,16 @@ include '../komponen/header.php';
                             <div class="invalid-feedback">You must add email</div>
                           </div>
                         </div>
+                        <div class="row">
+                          <div class="col-6">
+                            <label class="form-label">Tempat Lahir*</label>
+                            <input class="form-control" type="text" name="tmptlahir" placeholder="Tempat Lahir Pegawai" required />
+                          </div>
+                          <div class="col-6">
+                            <label class="form-label" for="form-wizard-progress-wizard-datepicker">Tanggal Lahir*</label>
+                            <input class="form-control datetimepicker" type="text" placeholder="d/m/y" data-options='{"dateFormat":"d/m/y","disableMobile":true}' id="form-wizard-progress-wizard-datepicker" name="tgllahir" />
+                          </div>
+                        </div>
                         <div class="mb-3">
                           <label class="form-label" for="bootstrap-wizard-wizard-email">Alamat*</label>
                           <input class="form-control" type="text" name="alamat" placeholder="Alamat Tempat Tinggal Pegawai" required="required" />
