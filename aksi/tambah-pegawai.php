@@ -1,5 +1,6 @@
 <?php
 include 'dir.php';
+include '../koneksi.php';
 
 # Auto generated kode pegawai
 $quer = mysqli_query($koneksi, "SELECT max(kode_pegawai) as kodeTerbesar FROM pegawai ");
