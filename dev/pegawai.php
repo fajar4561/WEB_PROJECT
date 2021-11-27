@@ -80,27 +80,11 @@ include '../komponen/header.php';
                           <input class="form-control" type="text" name="alamat" placeholder="Alamat Tempat Tinggal Pegawai" required="required" />
                         </div>
                     </div>
-                    <div class="tab-pane px-sm-3 px-md-5" role="tabpanel" aria-labelledby="bootstrap-wizard-tab2" id="bootstrap-wizard-tab2">
-                      <form>
+                    <div class="tab-pane px-sm-3 px-md-5" role="tabpanel" aria-labelledby="bootstrap-wizard-tab2" id="bootstrap-wizard-tab2">                     
                         <div class="mb-3">
-                          <div class="row" data-dropzone="data-dropzone" data-options='{"maxFiles":1,"data":[{"name":"avatar.png","size":"54kb","url":"../assets/img/team"}]}'>
-                            <div class="fallback">
-                              <input type="file" name="foto" />
-                            </div>
-                            <div class="col-md-auto">
-                              <div class="dz-preview dz-preview-single">
-                                <div class="dz-preview-cover d-flex align-items-center justify-content-center mb-3 mb-md-0">
-                                  <div class="avatar avatar-4xl"><img class="rounded-circle" src="../assets/img/team/avatar.png" alt="..." data-dz-thumbnail="data-dz-thumbnail" /></div>
-                                  <div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress=""></span></div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="col-md">
-                              <div class="dz-message dropzone-area px-2 py-3" data-dz-message="data-dz-message">
-                                <div class="text-center"><img class="me-2" src="../assets/img/icons/cloud-upload.svg" width="25" alt="" />Upload foto profil pegawai
-                                  <p class="mb-0 fs--1 text-400">Upload foto ukuran 300x300 dengan format jpg <br />Maksimal ukuran foto adalah 400KB</p>
-                                </div>
-                              </div>
+                          <div class="row text-center">
+                            <div class="col-12">
+                              <div class="avatar avatar-4xl"><img class="rounded-circle" src="../assets/img/team/avatar.png" alt="..." id="image-preview" /></div>
                             </div>
                           </div>
                         </div>
@@ -114,21 +98,29 @@ include '../komponen/header.php';
                         </div>
                         <div class="row">
                           <div class="col-6">
-                            <label class="form-label" for="bootstrap-wizard-wizard-email">Email*</label>
+                            <label class="form-label">Email*</label>
                             <input class="form-control" type="email" name="email" placeholder="Alamat Email Pegawai" pattern="^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-])+.)+([a-zA-Z0-9]{2,4})+$" required="required" id="bootstrap-wizard-wizard-email" data-wizard-validate-email="true" />
                           </div>
                           <div class="col-6">
-                            <label class="form-label" for="bootstrap-wizard-wizard-email">No Telephone*</label>
+                            <label class="form-label">No Telephone*</label>
                             <input class="form-control" type="text" name="telpon" placeholder="Nomor Telephone / Whatsapp Pegawai" required />
                           </div>
                         </div>
-                        <div class="mb-3">
-                          <label class="form-label" for="bootstrap-wizard-wizard-email">Username*</label>
-                          <input class="form-control" type="text" name="username" placeholder="Username untuk login ke sistem" required />
+                        <div class="row">
+                          <div class="col-6">
+                            <label class="form-label">Username*</label>
+                            <input class="form-control" type="text" name="username" placeholder="Username untuk login ke sistem" required />
+                          </div>
+                          <div class="col-6">
+                            <label class="form-label">Password*</label>
+                            <input class="form-control" type="text" name="password" placeholder="Password untuk login ke sistem" required />
+                          </div>
                         </div>
-                        <div class="mb-3">
-                          <label class="form-label" for="bootstrap-wizard-wizard-email">Password*</label>
-                          <input class="form-control" type="text" name="password" placeholder="Password untuk login ke sistem" required />
+                        <div class="row">
+                          <div class="mb-3">
+                            <label class="form-label">Foto*</label>
+                            <input type="file" class="form-control" name="foto" id="image-source" onchange="previewImage();"/>
+                          </div>
                         </div>
                     </div>
                     <div class="tab-pane text-center px-sm-3 px-md-5" role="tabpanel" aria-labelledby="bootstrap-wizard-tab4" id="bootstrap-wizard-tab4">
@@ -163,7 +155,17 @@ include '../komponen/header.php';
     <!-- ===============================================-->
     <!--    End of Main Content-->
     <!-- ===============================================-->
+    <script type="text/javascript">
+          function previewImage() {
+        document.getElementById("image-preview").style.display = "block";
+        var oFReader = new FileReader();
+         oFReader.readAsDataURL(document.getElementById("image-source").files[0]);
 
+        oFReader.onload = function(oFREvent) {
+          document.getElementById("image-preview").src = oFREvent.target.result;
+        };
+      };
+    </script>
 
     
 
