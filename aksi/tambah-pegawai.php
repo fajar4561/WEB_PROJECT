@@ -12,6 +12,8 @@ $huruf='STF';
 $kodePegawai = $huruf. sprintf("%03s", $urutan);
 
 # Deklarasi Variable
+
+$kode = '$kodePegawai'; // kode pegawai
 $nama = $_POST['nama'];
 $kelamin = $_POST['kelamin'];
 $agama = $_POST['agama'];
@@ -31,5 +33,47 @@ $username = $_POST['username'];
 $password = $_POST['password'];
 
 
+// lihat data pegawai apakah sudah ada data yang sama .
+$ambil = $koneksi->query("SELECT * FROM pegawai WHERE username='$username'"); // username yang sama
+$yangcocok = $ambil->num_rows;
+$ambil2 = $koneksi->query("SELECT * FROM pegawai WHERE nama='$nama'"); // nama yang sama
+$yangcocok2 = $ambil2->num_rows;
+$ambil3 = $koneksi->query("SELECT * FROM pegawai WHERE email='$email'"); // email yang sama
+$yangcocok3 = $ambil3->num_rows;
+
+if ($yangcocok==1) { // apabila username sudah terdaftar
+    echo "<script>alert('username Sudah Terdaftar Silahkan Periksa kembali');</script>";
+    echo "<script>window.location=history.go(-1);</script>";  // kembali ke halaman sebelumnya 
+}
+elseif ($yangcocok2==1) { // apabila nama sudah terdaftar
+    echo "<script>alert('nama Sudah Terdaftar Silahkan Periksa kembali');</script>";
+    echo "<script>window.location=history.go(-1);</script>";    
+}
+elseif ($yangcocok3==1) { // apabila email sudah terdaftar
+    echo "<script>alert('alamat email Sudah Terdaftar Silahkan Periksa kembali');</script>";
+    echo "<script>window.location=history.go(-1);</script>";    
+}
+else { // selain itu simpan data baru
+    $koneksi->query("INSERT INTO pegawai 
+        (id,kode_pegawai,nama,kelamin,agama,tmptlahir,tgllahir,alamat,jabatan,email,telpon,username,password,foto)
+        VALUES (null,
+        '$kode',
+        '$nama',        
+        '$kelamin',
+        '$agama',
+        '$tmptlahir',
+        '$tgllahir',
+        '$alamat',
+        '$jabatan',
+        '$email',
+        '$telpon',
+        '$username',
+        '$password',
+        '$foto')");
+
+
+    echo "<script>alert('Data Berhasil ditambahkan');</script>";
+    echo "<script>location='../$dir/data-pegawai';</script>";   
+}
 
  ?>
