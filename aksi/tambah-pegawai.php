@@ -15,6 +15,9 @@ $kodePegawai = $huruf. sprintf("%03s", $urutan);
 $nama = $_POST['nama'];
 $kelamin = $_POST['kelamin'];
 $agama = $_POST['agama'];
+$tmptlahir = $_POST['tmptlahir'];
+$tgl = $_POST['tgllahir'];
+$tgllahir = date("Y-m-d",strtotime($tgl));
 $alamat = $_POST['alamat'];
 // Simpan Foto
 $foto = $_FILES['foto']['name'];
@@ -26,5 +29,7 @@ $email = $_POST['email'];
 $telpon = $_POST['telpon'];
 $username = $_POST['username'];
 $password = $_POST['password'];
+
+
 
  ?>
