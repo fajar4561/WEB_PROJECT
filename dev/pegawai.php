@@ -82,7 +82,7 @@ include '../komponen/header.php';
                           </div>
                           <div class="col-6">
                             <label class="form-label" for="form-wizard-progress-wizard-datepicker">Tanggal Lahir*</label>
-                            <input class="form-control datetimepicker" type="text" placeholder="d/m/y" data-options='{"dateFormat":"d/m/y","disableMobile":true}' id="form-wizard-progress-wizard-datepicker" name="tgllahir" />
+                            <input class="form-control datetimepicker" type="text" placeholder="tanggal/bulan/tahun" data-options='{"dateFormat":"d-M-Y","disableMobile":true}' id="form-wizard-progress-wizard-datepicker" name="tgllahir" />
                           </div>
                         </div>
                         <div class="mb-3">
