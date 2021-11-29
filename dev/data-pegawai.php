@@ -95,10 +95,95 @@ include '../koneksi.php';
                               <div class="dropdown font-sans-serif position-static">
                                 <button class="btn btn-link text-600 btn-sm dropdown-toggle btn-reveal" type="button" data-bs-toggle="dropdown" data-boundary="window" aria-haspopup="true" aria-expanded="false"><span class="fas fa-ellipsis-h fs--1"></span></button>
                                 <div class="dropdown-menu dropdown-menu-end border py-0">
-                                  <div class="bg-white py-2"><a class="dropdown-item" href="#!">Edit</a><a class="dropdown-item text-danger" href="#!">Delete</a></div>
+                                  <div class="bg-white py-2"><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop<?=$data['id']?>">Edit</a><a class="dropdown-item text-danger" href="#!">Delete</a></div>
                                 </div>
                               </div>
                             </td>
+                            <!-- Modals Edit data pegawai -->
+                            <div class="modal fade" id="staticBackdrop<?=$data['id']?>" data-bs-keyboard="false" data-bs-backdrop="static" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                              <div class="modal-dialog modal-lg mt-6" role="document">
+                                <div class="modal-content border-0">
+                                  <div class="position-absolute top-0 end-0 mt-3 me-3 z-index-1">
+                                    <button class="btn-close btn btn-sm btn-circle d-flex flex-center transition-base" data-bs-dismiss="modal" aria-label="Close"></button>
+                                  </div>
+                                  <div class="modal-body p-0">
+                                    <div class="bg-light rounded-top-lg py-3 ps-4 pe-6">
+                                      <h4 class="mb-1" id="staticBackdropLabel">Ubah Data Pegawai</h4>
+                                      <p class="fs--2 mb-0">Data <a class="link-600 fw-semi-bold" href="#!"><?=$data['nama']?></a></p>
+                                    </div>
+                                    <div class="p-4">
+                                      <div class="row">
+                                        <div class="col-lg-9">
+                                          <div class="d-flex"><span class="fa-stack ms-n1 me-3"><i class="fas fa-circle fa-stack-2x text-200"></i><i class="fa-inverse fa-stack-1x text-primary fas fa-align-left" data-fa-transform="shrink-2"></i></span>
+                                            <div class="flex-1">
+                                              <h5 class="mb-2 fs-0">Description</h5>
+                                              <form>
+                                                <?php
+                                                $id = $data['id']; 
+                                                $query_edit = mysqli_query($koneksi,"SELECT * FROM pegawai WHERE id='$id'");
+                                                while ($row = mysqli_fetch_array($query_edit)) {  
+                                                ?>
+                                                <div class="row mt-3">
+                                                  <div class="col-lg-6">
+                                                    <div class="form-floating mb-3">
+                                                      <input class="form-control form-control-sm" type="text" name="kode" value="<?=$row['kode_pegawai']?>" readonly />
+                                                      <label for="floatingInput">Kode Pegawai</label>
+                                                    </div>
+                                                  </div>
+                                                  <div class="col-lg-6">
+                                                    <div class="form-floating mb-3">
+                                                      <input class="form-control form-control-sm" name="nama" type="text" value="<?=$row['nama']?>" />
+                                                      <label for="floatingInput">Nama Pegawai</label>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                                <div class="row mt-3">
+                                                  <div class="col-lg-6">
+                                                    <div class="mb-3">
+                                                      <select class="form-select js-choice" size="1" name="kelamin" required="required" data-options='{"removeItemButton":true,"placeholder":true}' data-wizard-validate-email="true" />
+                                                        <option value="<?=$row['kelamin']?>"><?=$row['kelamin']?></option>
+                                                        <option value="">Pilih jenis kelamin...</option>
+                                                        <option value="laki-laki">Laki-laki</option>
+                                                        <option value="perempuan">Perempuan</option>
+                                                      </select>
+                                                    </div>
+                                                  </div>
+                                                  <div class="col-lg-6">
+                                                    <div class="form-floating mb-3">
+                                                      <select class="form-select js-choice" id="organizerSingle" size="1" name="agama" required="required" data-options='{"removeItemButton":true,"placeholder":true}' data-wizard-validate-email="true" />
+                                                        <option value="<?=$row['agama']?>"><?=$row['agama']?></option>
+                                                        <option value="">Pilih Agama...</option>
+                                                        <option value="Islam">Islam</option>
+                                                        <option value="Khatolik">Khatolik</option>
+                                                        <option value="Protestan">Protestan</option>
+                                                        <option value="Hindu">Hindu </option>
+                                                        <option value="Budha">Budha </option>
+                                                        <option value="Konghuchu"> Konghuchu</option>
+                                                      </select>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              <?php } ?>
+                                              </form>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="col-lg-3">
+                                          <h6 class="mt-5 mt-lg-0">Add To Card</h6>
+                                          <ul class="nav flex-lg-column fs--1">
+                                            <li class="nav-item me-2 me-lg-0"><a class="nav-link nav-link-card-details" href="#!"><span class="fas fa-user me-2"></span><?=$data['nama']?></a></li>
+                                            <li class="nav-item me-2 me-lg-0"><a class="nav-link nav-link-card-details" href="#!"><span class="fas fa-tag me-2"></span><?=$data['jabatan']?></a></li>
+                                            <li class="nav-item me-2 me-lg-0"><a class="nav-link nav-link-card-details" href="#!"><span class="fas fa-paperclip me-2"></span><?=$data['email']?></a></li>
+                                            <li class="nav-item me-2 me-lg-0"><a class="nav-link nav-link-card-details" href="#!"><span class="fa fa-align-left me-2"></span><?=$data['telpon']?> </a></li>
+                                          </ul>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <!-- End Mondals Edit pegawai -->
                           </tr>
                           <?php } ?>
                         </tbody>
