@@ -59,7 +59,6 @@ include '../komponen/header.php';
                               <option value="laki-laki">Laki-laki</option>
                               <option value="perempuan">Perempuan</option>
                             </select>
-                            <div class="invalid-feedback">You must add email</div>
                           </div>
                           <div class="col-6">
                             <label class="form-label">Agama*</label>
@@ -72,7 +71,6 @@ include '../komponen/header.php';
                               <option value="Budha">Budha </option>
                               <option value="Konghuchu"> Konghuchu</option>
                             </select>
-                            <div class="invalid-feedback">You must add email</div>
                           </div>
                         </div>
                         <div class="row">

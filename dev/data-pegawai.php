@@ -95,7 +95,7 @@ include '../koneksi.php';
                               <div class="dropdown font-sans-serif position-static">
                                 <button class="btn btn-link text-600 btn-sm dropdown-toggle btn-reveal" type="button" data-bs-toggle="dropdown" data-boundary="window" aria-haspopup="true" aria-expanded="false"><span class="fas fa-ellipsis-h fs--1"></span></button>
                                 <div class="dropdown-menu dropdown-menu-end border py-0">
-                                  <div class="bg-white py-2"><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop<?=$data['id']?>">Edit</a><a class="dropdown-item text-danger" href="#!">Delete</a></div>
+                                  <div class="bg-white py-2"><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop<?=$data['id']?>">Edit</a><a class="dropdown-item text-danger" href="../aksi/hapus-pegawai?kode=<?=$data['kode_pegawai']?>&nama=<?=$data['nama']?>&jabatan=<?=$data['jabatan']?>" onclick="return confirm('Apakah Anda yakin ingin menghapus data <?=$data['nama']?>????')">Hapus</a></div>
                                 </div>
                               </div>
                             </td>
