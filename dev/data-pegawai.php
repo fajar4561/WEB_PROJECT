@@ -116,7 +116,7 @@ include '../koneksi.php';
                                         <div class="col-lg-9">
                                           <div class="d-flex"><span class="fa-stack ms-n1 me-3"><i class="fas fa-circle fa-stack-2x text-200"></i><i class="fa-inverse fa-stack-1x text-primary fas fa-align-left" data-fa-transform="shrink-2"></i></span>
                                             <div class="flex-1">
-                                              <h5 class="mb-2 fs-0">Description</h5>
+                                              <h5 class="mb-2 fs-0">Form Edit data</h5>
                                               <form>
                                                 <?php
                                                 $id = $data['id']; 
@@ -137,7 +137,7 @@ include '../koneksi.php';
                                                     </div>
                                                   </div>
                                                 </div>
-                                                <div class="row mt-3">
+                                                <div class="row mt-2">
                                                   <div class="col-lg-6">
                                                     <div class="mb-3">
                                                       <select class="form-select js-choice" size="1" name="kelamin" required="required" data-options='{"removeItemButton":true,"placeholder":true}' data-wizard-validate-email="true" />
@@ -163,18 +163,61 @@ include '../koneksi.php';
                                                     </div>
                                                   </div>
                                                 </div>
+                                                <div class="row mt-2">
+                                                  <div class="col-lg-12">
+                                                    <div class="form-floating mb-3">
+                                                      <input class="form-control form-control-sm" name="alamat" type="text" value="<?=$row['alamat']?>" />
+                                                      <label for="floatingInput">Alamat Pegawai</label>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                                <div class="row mt-2">
+                                                  <div class="col-lg-6">
+                                                    <div class="form-floating mb-3">
+                                                      <input class="form-control form-control-sm" name="email" type="email" value="<?=$row['email']?>" />
+                                                      <label for="floatingInput">Alamat Email</label>
+                                                    </div>
+                                                  </div>
+                                                  <div class="col-lg-6">
+                                                    <div class="form-floating mb-3">
+                                                      <input class="form-control form-control-sm" name="telpon" type="text" value="<?=$row['telpon']?>" />
+                                                      <label for="floatingInput">Nomor Telephone</label>
+                                                    </div>
+                                                  </div>
+                                                  <div class="col-lg-6">
+                                                    <div class="form-floating mb-3">
+                                                      <input class="form-control form-control-sm" name="username" type="text" value="<?=$row['username']?>" />
+                                                      <label for="floatingInput">Username</label>
+                                                    </div>
+                                                  </div>
+                                                  <div class="col-lg-6">
+                                                    <div class="form-floating mb-3">
+                                                      <input class="form-control form-control-sm" name="password" type="text" value="<?=$row['password']?>" />
+                                                      <label for="floatingInput">Password</label>
+                                                    </div>
+                                                  </div>
+                                                </div>
                                               <?php } ?>
                                               </form>
                                             </div>
                                           </div>
                                         </div>
                                         <div class="col-lg-3">
-                                          <h6 class="mt-5 mt-lg-0">Add To Card</h6>
+                                          <h6 class="mt-5 mt-lg-0">Detail</h6>
                                           <ul class="nav flex-lg-column fs--1">
-                                            <li class="nav-item me-2 me-lg-0"><a class="nav-link nav-link-card-details" href="#!"><span class="fas fa-user me-2"></span><?=$data['nama']?></a></li>
-                                            <li class="nav-item me-2 me-lg-0"><a class="nav-link nav-link-card-details" href="#!"><span class="fas fa-tag me-2"></span><?=$data['jabatan']?></a></li>
-                                            <li class="nav-item me-2 me-lg-0"><a class="nav-link nav-link-card-details" href="#!"><span class="fas fa-paperclip me-2"></span><?=$data['email']?></a></li>
-                                            <li class="nav-item me-2 me-lg-0"><a class="nav-link nav-link-card-details" href="#!"><span class="fa fa-align-left me-2"></span><?=$data['telpon']?> </a></li>
+                                            <li class="nav-item me-2 me-lg-0">
+                                              <div class="row text-center">
+                                                <div class="col-lg-12">
+                                                  <div class="avatar avatar-3xl">
+                                                  <img class="rounded-circle" src="../fotopegawai/<?=$data['foto']?>" alt="" />
+                                                </div>
+                                                </div>
+                                              </div>
+                                            </li>
+                                            <li class="nav-item me-2 me-lg-0"><a class="nav-link nav-link-card-details" href="#!"><span class="fas fa-user me-2"></span><small><?=$data['nama']?></small></a></li>
+                                            <li class="nav-item me-2 me-lg-0"><a class="nav-link nav-link-card-details" href="#!"><span class="fas fa-tag me-2"></span><small><?=$data['jabatan']?></small></a></li>
+                                            <li class="nav-item me-2 me-lg-0"><a class="nav-link nav-link-card-details" href="#!"><span class="fas fa-paperclip me-2"></span><small><?=$data['email']?></small></a></li>
+                                            <li class="nav-item me-2 me-lg-0"><a class="nav-link nav-link-card-details" href="#!"><span class="fa fa-align-left me-2"></span><small><?=$data['telpon']?></small> </a></li>
                                           </ul>
                                         </div>
                                       </div>
