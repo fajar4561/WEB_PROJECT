@@ -197,6 +197,27 @@ include '../koneksi.php';
                                                     </div>
                                                   </div>
                                                 </div>
+                                                <div class="row mt-2">
+                                                  <div class="col-lg-4 text-center">
+                                                    <div class="mb-3">
+                                                      <div class="avatar avatar-4xl"><img class="rounded-circle" src="../fotopegawai/<?=$row['foto']?>" alt="..." id="image-preview" /></div>
+                                                    </div>
+                                                  </div>
+                                                  <div class="col-lg-8">
+                                                    <div class="mb-3">
+                                                      <label class="form-label">Foto*</label>
+                                                      <input type="file" class="form-control" name="foto" id="image-source" onchange="previewImage();"/>
+                                                      <input type="hidden" name="foto2" value="<?=$row['foto']?>">
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                                <div class="row mt-2">
+                                                  <div class="col-lg-6">
+                                                    <button class="btn btn-falcon-primary me-1 mb-1" type="submit">
+                                                      <span class="fas fa-save ms-1" data-fa-transform="shrink-3"></span> Ubah
+                                                    </button>
+                                                  </div>
+                                                </div>
                                               <?php } ?>
                                               </form>
                                             </div>
@@ -254,6 +275,17 @@ include '../koneksi.php';
     <!-- ===============================================-->
     <!--    JavaScripts-->
     <!-- ===============================================-->
+    <script type="text/javascript">
+          function previewImage() {
+        document.getElementById("image-preview").style.display = "block";
+        var oFReader = new FileReader();
+         oFReader.readAsDataURL(document.getElementById("image-source").files[0]);
+
+        oFReader.onload = function(oFREvent) {
+          document.getElementById("image-preview").src = oFREvent.target.result;
+        };
+      };
+    </script>
      <?php
       include '../komponen/slidebar.php';
       include '../komponen/bawah.php';
