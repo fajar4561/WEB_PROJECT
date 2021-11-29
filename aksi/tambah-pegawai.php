@@ -13,7 +13,7 @@ $kodePegawai = $huruf. sprintf("%03s", $urutan);
 
 # Deklarasi Variable
 
-$kode = '$kodePegawai'; // kode pegawai
+$kode = $kodePegawai; // kode pegawai
 $nama = $_POST['nama'];
 $kelamin = $_POST['kelamin'];
 $agama = $_POST['agama'];
