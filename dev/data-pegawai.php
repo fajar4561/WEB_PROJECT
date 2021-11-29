@@ -154,27 +154,25 @@ include '../koneksi.php';
                                                 <div class="row mt-2">
                                                   <div class="col-lg-6">
                                                     <div class="mb-3">
-                                                      <select class="form-select js-choice" size="1" name="kelamin" required="required" data-options='{"removeItemButton":true,"placeholder":true}' data-wizard-validate-email="true" />
+                                                      <select class="form-control" name="kelamin" required>
                                                         <option value="<?=$row['kelamin']?>"><?=$row['kelamin']?></option>
-                                                        <option value="">Pilih jenis kelamin...</option>
+                                                        <option value="">jenis kelamin...</option>
                                                         <option value="laki-laki">Laki-laki</option>
                                                         <option value="perempuan">Perempuan</option>
                                                       </select>
                                                     </div>
                                                   </div>
                                                   <div class="col-lg-6">
-                                                    <div class="form-floating mb-3">
-                                                      <select class="form-select js-choice" id="organizerSingle" size="1" name="agama" required="required" data-options='{"removeItemButton":true,"placeholder":true}' data-wizard-validate-email="true" />
-                                                        <option value="<?=$row['agama']?>"><?=$row['agama']?></option>
-                                                        <option value="">Pilih Agama...</option>
-                                                        <option value="Islam">Islam</option>
-                                                        <option value="Khatolik">Khatolik</option>
-                                                        <option value="Protestan">Protestan</option>
-                                                        <option value="Hindu">Hindu </option>
-                                                        <option value="Budha">Budha </option>
-                                                        <option value="Konghuchu"> Konghuchu</option>
-                                                      </select>
-                                                    </div>
+                                                    <select class="form-control" name="agama" required>
+                                                      <option value="<?=$row['agama']?>"><?=$row['agama']?></option>
+                                                      <option value="">Pilih Agama...</option>
+                                                      <option value="Islam">Islam</option>
+                                                      <option value="Khatolik">Khatolik</option>
+                                                      <option value="Protestan">Protestan</option>
+                                                      <option value="Hindu">Hindu </option>
+                                                      <option value="Budha">Budha </option>
+                                                      <option value="Konghuchu"> Konghuchu</option>
+                                                    </select>
                                                   </div>
                                                 </div>
                                                 <div class="row mt-2">

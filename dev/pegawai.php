@@ -55,7 +55,7 @@ include '../komponen/header.php';
                           <div class="col-6">
                             <label class="form-label">Jenis Kelamin*</label>
                             <select class="form-select js-choice" size="1" name="kelamin" required="required" data-options='{"removeItemButton":true,"placeholder":true}' data-wizard-validate-email="true" />
-                              <option value="">Pilih jenis kelamin...</option>
+                              <option value="">Pilih....</option>
                               <option value="laki-laki">Laki-laki</option>
                               <option value="perempuan">Perempuan</option>
                             </select>
@@ -64,7 +64,7 @@ include '../komponen/header.php';
                           <div class="col-6">
                             <label class="form-label">Agama*</label>
                             <select class="form-select js-choice" id="organizerSingle" size="1" name="agama" required="required" data-options='{"removeItemButton":true,"placeholder":true}' data-wizard-validate-email="true" />
-                              <option value="">Pilih Agama...</option>
+                              <option value="">Pilih..</option>
                               <option value="Islam">Islam</option>
                               <option value="Khatolik">Khatolik</option>
                               <option value="Protestan">Protestan</option>
@@ -101,7 +101,7 @@ include '../komponen/header.php';
                         <div class="mb-3">
                           <label class="form-label" for="bootstrap-wizard-gender">Jabatan*</label>
                           <select class="form-select" name="jabatan" required>
-                            <option value="">Pilih Jabatan Pegawai ...</option>
+                            <option value="">Pilih...</option>
                             <option value="Admin">Admin</option>
                             <option value="Pimpinan">Pimpinan</option>
                           </select>
