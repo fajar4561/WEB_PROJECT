@@ -147,7 +147,7 @@ include '../koneksi.php';
                                                   <div class="col-6">
                                                     <div class="form-floating mb-3">
                                                       <input class="form-control datetimepicker" type="text" data-options='{"dateFormat":"d-M-Y","disableMobile":true}' id="form-wizard-progress-wizard-datepicker" name="tgllahir" value="<?=date("d-M-Y",strtotime($data['tgllahir']));?>" />
-                                                      <label for="floatingInput">Tanggal Lahir</label>
+                                                      <label for="floatingInput">Tgl Lahir</label>
                                                     </div>
                                                   </div>
                                                 </div>
