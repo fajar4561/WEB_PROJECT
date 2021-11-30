@@ -85,7 +85,7 @@ include '../koneksi.php';
                               <div class="dropdown font-sans-serif position-static">
                                 <button class="btn btn-link text-600 btn-sm dropdown-toggle btn-reveal" type="button" data-bs-toggle="dropdown" data-boundary="window" aria-haspopup="true" aria-expanded="false"><span class="fas fa-ellipsis-h fs--1"></span></button>
                                 <div class="dropdown-menu dropdown-menu-end border py-0">
-                                  <div class="bg-white py-2"><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop<?=$data['id']?>">Edit</a><a class="dropdown-item text-danger" href="../aksi/hapus-pegawai?kode=<?=$data['kode_pegawai']?>&nama=<?=$data['nama']?>&jabatan=<?=$data['jabatan']?>" onclick="return confirm('Apakah Anda yakin ingin menghapus data <?=$data['nama']?>????')">Hapus</a></div>
+                                  <div class="bg-white py-2"><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop<?=$data['id']?>">Edit</a><a class="dropdown-item text-danger" href="../aksi/hapus-produk?kode=<?=$data['kode_produk']?>&nama=<?=$data['nama_produk']?>" onclick="return confirm('Apakah Anda yakin ingin menghapus data <?=$data['nama_produk']?>????')">Hapus</a></div>
                                 </div>
                               </div>
                             </td>
@@ -98,8 +98,8 @@ include '../koneksi.php';
                                   </div>
                                   <div class="modal-body p-0">
                                     <div class="bg-light rounded-top-lg py-3 ps-4 pe-6">
-                                      <h4 class="mb-1" id="staticBackdropLabel">Ubah Data Pegawai</h4>
-                                      <p class="fs--2 mb-0">Data <a class="link-600 fw-semi-bold" href="#!"><?=$data['nama']?></a></p>
+                                      <h4 class="mb-1" id="staticBackdropLabel">Ubah Data Produk</h4>
+                                      <p class="fs--2 mb-0">Data <a class="link-600 fw-semi-bold" href="#!"><?=$data['nama_produk']?></a></p>
                                     </div>
                                     <div class="p-4">
                                       <div class="row">
@@ -110,92 +110,61 @@ include '../koneksi.php';
                                               <form method="post" action="../aksi/Ubah-pegawai" enctype="multipart/form-data">
                                                 <?php
                                                 $id = $data['id']; 
-                                                $query_edit = mysqli_query($koneksi,"SELECT * FROM pegawai WHERE id='$id'");
+                                                $query_edit = mysqli_query($koneksi,"SELECT * FROM produk WHERE id='$id'");
                                                 while ($row = mysqli_fetch_array($query_edit)) {  
                                                 ?>
                                                 <div class="row mt-3">
                                                   <div class="col-lg-6">
                                                     <div class="form-floating mb-3">
-                                                      <input class="form-control form-control-sm" type="text" name="kode" value="<?=$row['kode_pegawai']?>" readonly />
-                                                      <label for="floatingInput">Kode Pegawai</label>
+                                                      <input class="form-control form-control-sm" type="text" name="kode" value="<?=$row['kode_produk']?>" readonly />
+                                                      <label for="floatingInput">Kode Produk</label>
                                                     </div>
                                                   </div>
                                                   <div class="col-lg-6">
                                                     <div class="form-floating mb-3">
-                                                      <input class="form-control form-control-sm" name="nama" type="text" value="<?=$row['nama']?>" />
-                                                      <label for="floatingInput">Nama Pegawai</label>
+                                                      <input class="form-control form-control-sm" name="nama" type="text" value="<?=$row['nama_produk']?>" />
+                                                      <label for="floatingInput">Nama Produk</label>
                                                     </div>
                                                   </div>
                                                 </div>
                                                 <div class="row mt-2">
-                                                  <div class="col-lg-6">
-                                                    <div class="form-floating mb-3">
-                                                      <input class="form-control form-control-sm" name="tmptlahir" type="text" value="<?=$row['tmptlahir']?>" />
-                                                      <label for="floatingInput">Tempat Lahir</label>
-                                                    </div>
-                                                  </div>
-                                                  <div class="col-6">
-                                                    <div class="form-floating mb-3">
-                                                      <input class="form-control datetimepicker" type="text" data-options='{"dateFormat":"d-M-Y","disableMobile":true}' id="form-wizard-progress-wizard-datepicker" name="tgllahir" value="<?=date("d-M-Y",strtotime($data['tgllahir']));?>" />
-                                                      <label for="floatingInput">Tgl Lahir</label>
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                                <div class="row mt-2">
-                                                  <div class="col-lg-6">
+                                                  <div class="col-lg-12">
                                                     <div class="mb-3">
-                                                      <select class="form-select" name="kelamin" required>
-                                                        <option value="<?=$row['kelamin']?>"><?=$row['kelamin']?></option>
-                                                        <option value="">jenis kelamin...</option>
-                                                        <option value="laki-laki">Laki-laki</option>
-                                                        <option value="perempuan">Perempuan</option>
+                                                      <select class="form-select" name="katagori" required>
+                                                        <option value="<?=$row['katagori']?>"><?=$row['katagori']?></option>
+                                                        <option value="">Pilih..</option>
+                                                        <option value="Sepatu untuk lari">Sepatu untuk lari</option>
+                                                        <option value="Sepatu Golf">Sepatu Golf</option>
+                                                        <option value="Sepatu tenis">Sepatu tenis</option>
+                                                        <option value="Sepatu basket">Sepatu basket</option>
+                                                        <option value="Sepatu sepak bola">Sepatu sepak bola</option>
+                                                        <option value="Sepatu Hiking">Sepatu Hiking</option>
+                                                        <option value="Sepatu Climbing">Sepatu Climbing</option>
+                                                        <option value="Sepatu Futsal">Sepatu Futsal</option>
+                                                        <option value="lain-lain">Lain-lain</option>
                                                       </select>
                                                     </div>
-                                                  </div>
-                                                  <div class="col-lg-6">
-                                                    <select class="form-select" name="agama" required>
-                                                      <option value="<?=$row['agama']?>"><?=$row['agama']?></option>
-                                                      <option value="">Pilih Agama...</option>
-                                                      <option value="Islam">Islam</option>
-                                                      <option value="Khatolik">Khatolik</option>
-                                                      <option value="Protestan">Protestan</option>
-                                                      <option value="Hindu">Hindu </option>
-                                                      <option value="Budha">Budha </option>
-                                                      <option value="Konghuchu"> Konghuchu</option>
-                                                    </select>
                                                   </div>
                                                 </div>
                                                 <div class="row mt-2">
                                                   <div class="col-lg-12">
                                                     <div class="form-floating mb-3">
-                                                      <input class="form-control form-control-sm" name="alamat" type="text" value="<?=$row['alamat']?>" />
-                                                      <label for="floatingInput">Alamat Pegawai</label>
+                                                      <textarea class="form-control" name="deskripsi" rows="5" placeholder="Deskripsi dari produk yang akan dijual" required style="white-space: pre-line;"><?=$row['deskripsi']?></textarea>
+                                                      <label for="floatingInput">Deskripsi Produk</label>
                                                     </div>
                                                   </div>
                                                 </div>
                                                 <div class="row mt-2">
                                                   <div class="col-lg-6">
                                                     <div class="form-floating mb-3">
-                                                      <input class="form-control form-control-sm" name="email" type="email" value="<?=$row['email']?>" />
-                                                      <label for="floatingInput">Alamat Email</label>
+                                                      <input class="form-control form-control-sm" name="stok" type="number" value="<?=$row['stok']?>" />
+                                                      <label for="floatingInput">Stok Produk</label>
                                                     </div>
                                                   </div>
                                                   <div class="col-lg-6">
                                                     <div class="form-floating mb-3">
-                                                      <input class="form-control form-control-sm" name="telpon" type="text" value="<?=$row['telpon']?>" />
-                                                      <label for="floatingInput">Nomor Telephone</label>
-                                                    </div>
-                                                  </div>
-                                                  <div class="col-lg-6">
-                                                    <div class="form-floating mb-3">
-                                                      <input class="form-control form-control-sm" name="username" type="text" value="<?=$row['username']?>" />
-                                                      <label for="floatingInput">Username</label>
-                                                    </div>
-                                                  </div>
-                                                  <div class="col-lg-6">
-                                                    <div class="form-floating mb-3">
-                                                      <input class="form-control form-control-sm" name="password" type="text" value="<?=$row['password']?>" />
-                                                      <label for="floatingInput">Password</label>
+                                                      <input class="form-control" type="text" id="rupiah" name="harga" required value="Rp. <?=number_format($row['harga'])?>" />
+                                                      <label for="floatingInput">Harga Produk</label>
                                                     </div>
                                                   </div>
                                                 </div>
@@ -287,6 +256,33 @@ include '../koneksi.php';
           document.getElementById("image-preview").src = oFREvent.target.result;
         };
       };
+    </script>
+    <script type="text/javascript">
+
+    var rupiah = document.getElementById('rupiah');
+    rupiah.addEventListener('keyup', function(e){
+            // tambahkan 'Rp.' pada saat form di ketik
+            // gunakan fungsi formatRupiah() untuk mengubah angka yang di ketik menjadi format angka
+            rupiah.value = formatRupiah(this.value, 'Rp. ');
+        });
+
+    /* Fungsi formatRupiah */
+    function formatRupiah(angka, prefix){
+        var number_string = angka.replace(/[^,\d]/g, '').toString(),
+        split           = number_string.split(','),
+        sisa            = split[0].length % 3,
+        rupiah          = split[0].substr(0, sisa),
+        ribuan          = split[0].substr(sisa).match(/\d{3}/gi);
+
+            // tambahkan titik jika yang di input sudah menjadi angka ribuan
+            if(ribuan){
+                separator = sisa ? '.' : '';
+                rupiah += separator + ribuan.join('.');
+            }
+
+            rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+            return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+        }
     </script>
      <?php
       include '../komponen/slidebar.php';
