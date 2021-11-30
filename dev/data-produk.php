@@ -163,7 +163,7 @@ include '../koneksi.php';
                                                   </div>
                                                   <div class="col-lg-6">
                                                     <div class="form-floating mb-3">
-                                                      <input class="form-control" type="text" id="rupiah" name="harga" required value="Rp. <?=number_format($row['harga'])?>" />
+                                                      <input class="form-control" type="number" name="harga" required value="<?=$row['harga']?>" />
                                                       <label for="floatingInput">Harga Produk</label>
                                                     </div>
                                                   </div>
@@ -171,7 +171,7 @@ include '../koneksi.php';
                                                 <div class="row mt-2">
                                                   <div class="col-lg-4 text-center">
                                                     <div class="mb-3">
-                                                      <div class="avatar avatar-4xl"><img class="rounded-circle" src="../fotopegawai/<?=$row['foto']?>" alt="..." id="image-preview" /></div>
+                                                      <div class="avatar avatar-4xl"><img class="rounded-circle" src="../fotoproduk/<?=$row['foto']?>" alt="..." id="image-preview"/></div>
                                                     </div>
                                                   </div>
                                                   <div class="col-lg-8">
@@ -201,15 +201,15 @@ include '../koneksi.php';
                                               <div class="row text-center">
                                                 <div class="col-lg-12">
                                                   <div class="avatar avatar-3xl">
-                                                  <img class="rounded-circle" src="../fotopegawai/<?=$data['foto']?>" alt="" />
+                                                  <img class="rounded-circle" src="../fotoproduk/<?=$data['foto']?>" alt="" />
                                                 </div>
                                                 </div>
                                               </div>
                                             </li>
-                                            <li class="nav-item me-2 me-lg-0"><a class="nav-link nav-link-card-details" href="#!"><span class="fas fa-user me-2"></span><small><?=$data['nama']?></small></a></li>
-                                            <li class="nav-item me-2 me-lg-0"><a class="nav-link nav-link-card-details" href="#!"><span class="fas fa-tag me-2"></span><small><?=$data['jabatan']?></small></a></li>
-                                            <li class="nav-item me-2 me-lg-0"><a class="nav-link nav-link-card-details" href="#!"><span class="fas fa-paperclip me-2"></span><small><?=$data['email']?></small></a></li>
-                                            <li class="nav-item me-2 me-lg-0"><a class="nav-link nav-link-card-details" href="#!"><span class="fa fa-align-left me-2"></span><small><?=$data['telpon']?></small> </a></li>
+                                            <li class="nav-item me-2 me-lg-0"><a class="nav-link nav-link-card-details" href="#!"><span class="fas fa-archive me-2"></span><small><?=$data['nama_produk']?></small></a></li>
+                                            <li class="nav-item me-2 me-lg-0"><a class="nav-link nav-link-card-details" href="#!"><span class="fas fa-tag me-2"></span><small><?=$data['katagori']?></small></a></li>
+                                            <li class="nav-item me-2 me-lg-0"><a class="nav-link nav-link-card-details" href="#!"><span class="fas fa-calendar me-2"></span><small>Rp.<?=number_format($data['harga'])?></small></a></li>
+                                            <li class="nav-item me-2 me-lg-0"><a class="nav-link nav-link-card-details" href="#!"><span class="fa fa-gift me-2"></span><small><?=$data['stok']?> Pasang</small> </a></li>
                                           </ul>
                                         </div>
                                       </div>
@@ -246,7 +246,7 @@ include '../koneksi.php';
     <!-- ===============================================-->
     <!--    JavaScripts-->
     <!-- ===============================================-->
-    <script type="text/javascript">
+     <script type="text/javascript">
           function previewImage() {
         document.getElementById("image-preview").style.display = "block";
         var oFReader = new FileReader();
@@ -257,33 +257,7 @@ include '../koneksi.php';
         };
       };
     </script>
-    <script type="text/javascript">
-
-    var rupiah = document.getElementById('rupiah');
-    rupiah.addEventListener('keyup', function(e){
-            // tambahkan 'Rp.' pada saat form di ketik
-            // gunakan fungsi formatRupiah() untuk mengubah angka yang di ketik menjadi format angka
-            rupiah.value = formatRupiah(this.value, 'Rp. ');
-        });
-
-    /* Fungsi formatRupiah */
-    function formatRupiah(angka, prefix){
-        var number_string = angka.replace(/[^,\d]/g, '').toString(),
-        split           = number_string.split(','),
-        sisa            = split[0].length % 3,
-        rupiah          = split[0].substr(0, sisa),
-        ribuan          = split[0].substr(sisa).match(/\d{3}/gi);
-
-            // tambahkan titik jika yang di input sudah menjadi angka ribuan
-            if(ribuan){
-                separator = sisa ? '.' : '';
-                rupiah += separator + ribuan.join('.');
-            }
-
-            rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
-            return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
-        }
-    </script>
+    
      <?php
       include '../komponen/slidebar.php';
       include '../komponen/bawah.php';
