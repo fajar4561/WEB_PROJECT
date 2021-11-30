@@ -32,4 +32,4 @@ $koneksi->query("INSERT INTO produk
     echo "<script>alert('Produk $nama Berhasil ditambahkan');</script>";
     echo "<script>location='../$dir/data-produk';</script>";
 
- ?>
+ ?>s
