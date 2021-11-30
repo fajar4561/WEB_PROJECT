@@ -58,7 +58,7 @@ $kodeProduk = $huruf. sprintf("%03s", $urutan);
                 <div class="card-body bg-light">
                   <div class="tab-content">
                     <div class="tab-pane preview-tab-pane active" role="tabpanel" aria-labelledby="tab-dom-f1d388f8-6223-48cd-b720-917f0290eedd" id="dom-f1d388f8-6223-48cd-b720-917f0290eedd">
-                      <form class="row g-3">
+                      <form class="row g-3" method="post" action="../aksi/tambah-produk" enctype="multipart/form-data">
                         <div class="col-md-6">
                           <label class="form-label" >Kode Produk</label>
                           <input class="form-control" type="text" name="kode" readonly value="<?=$kodeProduk?>" />
@@ -88,17 +88,17 @@ $kodeProduk = $huruf. sprintf("%03s", $urutan);
                         </div>
                         <div class="col-6">
                           <label class="form-label">Stok</label>
-                          <input class="form-control" type="number" placeholder="Stok dari produk yang akan dijual" />
+                          <input class="form-control" type="number" name="stok" placeholder="Stok dari produk yang akan dijual" />
                         </div>
                         <div class="col-md-6">
                           <label class="form-label">Harga</label>
-                          <input class="form-control" type="text" id="rupiah" required placeholder="Harga produk yang akan dijual" />
+                          <input class="form-control" type="text" id="rupiah" name="harga" required placeholder="Harga produk yang akan dijual" />
                         </div>
                         <div class="col-md-6 text-center">
                           <div class="avatar avatar-4xl"><img class="avatar lavatar-4xl" src="../assets/img/team/avatar.png" alt="..." id="image-preview" /></div>
                         </div>
                         <div class="col-md-6">
-                          <label class="form-label">Foto*</label>
+                          <label class="form-label">Foto Produk</label>
                           <input type="file" class="form-control" name="foto" id="image-source" onchange="previewImage();"/>
                         </div>
                         <div class="col-12">
