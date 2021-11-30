@@ -154,7 +154,7 @@ include '../koneksi.php';
                                                 <div class="row mt-2">
                                                   <div class="col-lg-6">
                                                     <div class="mb-3">
-                                                      <select class="form-control" name="kelamin" required>
+                                                      <select class="form-select" name="kelamin" required>
                                                         <option value="<?=$row['kelamin']?>"><?=$row['kelamin']?></option>
                                                         <option value="">jenis kelamin...</option>
                                                         <option value="laki-laki">Laki-laki</option>
@@ -163,7 +163,7 @@ include '../koneksi.php';
                                                     </div>
                                                   </div>
                                                   <div class="col-lg-6">
-                                                    <select class="form-control" name="agama" required>
+                                                    <select class="form-select" name="agama" required>
                                                       <option value="<?=$row['agama']?>"><?=$row['agama']?></option>
                                                       <option value="">Pilih Agama...</option>
                                                       <option value="Islam">Islam</option>
