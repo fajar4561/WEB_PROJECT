@@ -56,6 +56,21 @@ include '../komponen/header.php';
                           <label class="form-label" >Nama Produk</label>
                           <input class="form-control" type="text" name="nama" placeholder="Nama Produk yang akan dijual" required />
                         </div>
+                        <div class="col-md-12">
+                          <label class="form-label">Katagori Produk</label>
+                            <select class="form-select js-choice" id="organizerSingle" size="1" name="katagori" required="required" data-options='{"removeItemButton":true,"placeholder":true}' data-wizard-validate-email="true" />
+                              <option value="">Pilih..</option>
+                              <option value="Sepatu untuk lari">Sepatu untuk lari</option>
+                              <option value="Sepatu Golf">Sepatu Golf</option>
+                              <option value="Sepatu tenis">Sepatu tenis</option>
+                              <option value="Sepatu basket">Sepatu basket</option>
+                              <option value="Sepatu sepak bola">Sepatu sepak bola</option>
+                              <option value="Sepatu Hiking">Sepatu Hiking</option>
+                              <option value="Sepatu Climbing">Sepatu Climbing</option>
+                              <option value="Sepatu Futsal">Sepatu Futsal</option>
+                              <option value="lain-lain">Lain-lain</option>
+                          </select>
+                        </div>
                         <div class="col-12">
                           <label class="form-label">Deskripsi</label>
                           <textarea class="form-control" name="deskripsi" rows="3" placeholder="Deskripsi dari produk yang akan dijual" required style="white-space: pre-line;"></textarea>
