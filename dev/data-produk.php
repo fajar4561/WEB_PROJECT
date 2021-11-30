@@ -107,7 +107,7 @@ include '../koneksi.php';
                                           <div class="d-flex"><span class="fa-stack ms-n1 me-3"><i class="fas fa-circle fa-stack-2x text-200"></i><i class="fa-inverse fa-stack-1x text-primary fas fa-align-left" data-fa-transform="shrink-2"></i></span>
                                             <div class="flex-1">
                                               <h5 class="mb-2 fs-0">Form Edit data</h5>
-                                              <form method="post" action="../aksi/Ubah-pegawai" enctype="multipart/form-data">
+                                              <form method="post" action="../aksi/Ubah-produk" enctype="multipart/form-data">
                                                 <?php
                                                 $id = $data['id']; 
                                                 $query_edit = mysqli_query($koneksi,"SELECT * FROM produk WHERE id='$id'");
