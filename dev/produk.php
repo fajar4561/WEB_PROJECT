@@ -1,6 +1,17 @@
 <?php
 $judul = 'App | Input Data Produk';
 include '../komponen/header.php';
+include '../koneksi.php';
+
+
+# Generated kode produk otomatis
+$quer = mysqli_query($koneksi, "SELECT max(kode_produk) as kodeTerbesar FROM produk ");
+$dat = mysqli_fetch_array($quer);
+$kodeProduk = $dat['kodeTerbesar'];
+$urutan = (int) substr($kodeProduk, 3, 3);
+$urutan++;
+$huruf='BRG';
+$kodeProduk = $huruf. sprintf("%03s", $urutan);
  ?>
 
   <body>
@@ -50,7 +61,7 @@ include '../komponen/header.php';
                       <form class="row g-3">
                         <div class="col-md-6">
                           <label class="form-label" >Kode Produk</label>
-                          <input class="form-control" type="text" name="kode" readonly />
+                          <input class="form-control" type="text" name="kode" readonly value="<?=$kodeProduk?>" />
                         </div>
                         <div class="col-md-6">
                           <label class="form-label" >Nama Produk</label>
