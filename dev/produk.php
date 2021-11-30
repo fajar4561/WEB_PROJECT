@@ -68,6 +68,13 @@ include '../komponen/header.php';
                           <label class="form-label">Harga</label>
                           <input class="form-control" type="text" id="rupiah" required placeholder="Harga produk yang akan dijual" />
                         </div>
+                        <div class="col-md-6 text-center">
+                          <div class="avatar avatar-4xl"><img class="avatar lavatar-4xl" src="../assets/img/team/avatar.png" alt="..." id="image-preview" /></div>
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label">Foto*</label>
+                          <input type="file" class="form-control" name="foto" id="image-source" onchange="previewImage();"/>
+                        </div>
                         <div class="col-12">
                           <button class="btn btn-primary" type="submit">Tambah</button>
                         </div>
