@@ -69,7 +69,7 @@ include '../koneksi.php';
                 <div class="mb-4 col-md-6 col-lg-4">
                   <div class="border shadow rounded-1 h-100 d-flex flex-column justify-content-between pb-3">
                     <div class="overflow-hidden">
-                      <div class="position-relative rounded-top overflow-hidden"><a class="d-block" href="../app/e-commerce/product/product-details.html"><img class="img-fluid rounded-top" src="../fotoproduk/<?=$d['foto']?>" alt="" /></a><span class="badge rounded-pill bg-success position-absolute mt-2 me-2 z-index-2 top-0 end-0">New</span>
+                      <div class="position-relative rounded-top overflow-hidden"><a class="d-block" href="detail-produk?kode=<?=$d['kode_produk']?>"><img class="img-fluid rounded-top" src="../fotoproduk/<?=$d['foto']?>" alt="" /></a><span class="badge rounded-pill bg-success position-absolute mt-2 me-2 z-index-2 top-0 end-0">New</span>
                       </div>
                       <div class="p-3">
                         <h5 class="fs-0"><a class="text-dark" href="../app/e-commerce/product/product-details.html"><?=$d['nama_produk']?></a></h5>
