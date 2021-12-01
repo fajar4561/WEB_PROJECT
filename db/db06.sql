@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 30 Nov 2021 pada 05.20
+-- Generation Time: 01 Des 2021 pada 17.48
 -- Versi Server: 10.1.25-MariaDB
 -- PHP Version: 5.6.31
 
@@ -71,6 +71,15 @@ CREATE TABLE `produk` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Dumping data untuk tabel `produk`
+--
+
+INSERT INTO `produk` (`id`, `kode_produk`, `nama_produk`, `katagori`, `deskripsi`, `stok`, `harga`, `foto`) VALUES
+(1, 'BRG001', 'sepatu specs pink', 'Sepatu Futsal', 'SIZE : 38,39,40,41,42,43,44\r\nHARGA SUDAH TERMASUK BOX/DUS, PAKCING RAPI.', 100, 110000, '6867700_018f05ad-52ac-4266-a43b-016553465106_1280_1280.jpg'),
+(2, 'BRG002', 'Sepatu futsal junior eskudo 500', 'Sepatu Futsal', 'Sepatu Futsal dengan bahan dan kualitas ori. \r\nNyaman dipakai', 100, 480000, 'eskudo-500-junior-futsal-boots-yellow.jpg'),
+(3, 'BRG003', 'adidas Energyfalcon Running Shoes', 'Sepatu untuk lari', 'Saptu Lari Pria tersedia berbagai macam ukuran dan varian. Topangan di bagian luar membuat sepatu running ini terasa pas dan membuat Anda dapat terus melanjutkan lari', 110, 250000, 'adidas_adidas_energyfalcon_running_shoes_sepatu_lari_pria_-eh3146-_full02_i7yicrsz (2).jpg');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -99,7 +108,7 @@ ALTER TABLE `pegawai`
 -- AUTO_INCREMENT for table `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;COMMIT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
