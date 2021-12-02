@@ -2,6 +2,7 @@
 $judul = 'App | Beranda';
 include 'komponen/header.php';
 include '../koneksi.php';
+session_start();
 ?>
   <body>
 
@@ -85,7 +86,7 @@ include '../koneksi.php';
                     <div class="d-flex flex-between-center px-3">
                       <div><span class="fa fa-star text-warning"></span><span class="fa fa-star text-warning"></span><span class="fa fa-star text-warning"></span><span class="fa fa-star text-warning"></span><span class="fa fa-star text-300"></span><span class="ms-1">(8)</span>
                       </div>
-                      <div><a class="btn btn-sm btn-falcon-default me-2" href="#!" data-bs-toggle="tooltip" data-bs-placement="top" title="Add to Wish List"><span class="far fa-heart"></span></a><a class="btn btn-sm btn-falcon-default" href="#!" data-bs-toggle="tooltip" data-bs-placement="top" title="Add to Cart"><span class="fas fa-cart-plus"></span></a></div>
+                      <div><a class="btn btn-sm btn-falcon-default" href="beli?kode=<?=$d['kode_produk']?>&id=<?=$d['id']?>" data-bs-toggle="tooltip" data-bs-placement="top" title="Masukkan Keranjang"><span class="fas fa-cart-plus"></span></a></div>
                     </div>
                   </div>
                 </div>
