@@ -77,8 +77,8 @@ include '../koneksi.php';
                         <h5 class="fs-md-2 text-warning mb-0 d-flex align-items-center mb-3"> Rp.<?=number_format($d['harga'])?>
                           
                         </h5>
-                        <p class="fs--1 mb-1">Shipping Cost: <strong>$50</strong></p>
                         <p class="fs--1 mb-1">Stock: <strong class="text-success">Available</strong>
+                        <p class="fs--1 mb-1">Jumlah Stok: <strong><?=$d['stok']?></strong></p>
                         </p>
                       </div>
                     </div>
