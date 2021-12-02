@@ -72,7 +72,7 @@ include '../koneksi.php';
                       <div class="position-relative rounded-top overflow-hidden"><a class="d-block" href="detail-produk?kode=<?=$d['kode_produk']?>"><img class="img-fluid rounded-top" src="../fotoproduk/<?=$d['foto']?>" alt="" /></a><span class="badge rounded-pill bg-success position-absolute mt-2 me-2 z-index-2 top-0 end-0">New</span>
                       </div>
                       <div class="p-3">
-                        <h5 class="fs-0"><a class="text-dark" href="../app/e-commerce/product/product-details.html"><?=$d['nama_produk']?></a></h5>
+                        <h5 class="fs-0"><a class="text-dark text-uppercase" href="detail-produk?kode=<?=$d['kode_produk']?>"><?=$d['nama_produk']?></a></h5>
                         <p class="fs--1 mb-3"><a class="text-500" href="#!"><?=$d['katagori']?></a></p>
                         <h5 class="fs-md-2 text-warning mb-0 d-flex align-items-center mb-3"> Rp.<?=number_format($d['harga'])?>
                           
