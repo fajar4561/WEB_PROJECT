@@ -25,43 +25,34 @@ session_start();
             <div class="col-xl-4 order-xl-1">
               <div class="card">
                 <div class="card-header bg-light btn-reveal-trigger d-flex flex-between-center">
-                  <h5 class="mb-0">Order Summary</h5><a class="btn btn-link btn-sm btn-reveal text-600" href="../../app/e-commerce/shopping-cart.html"><span class="fas fa-pencil-alt"></span></a>
+                  <h5 class="mb-0">List Order</h5><a class="btn btn-link btn-sm btn-reveal text-600" href="../../app/e-commerce/shopping-cart.html"><span class="fas fa-pencil-alt"></span></a>
                 </div>
                 <div class="card-body">
                   <table class="table table-borderless fs--1 mb-0">
+                    <?php $nomor=1; ?>
+                    <?php $totalbelanja = 0; ?>
+                    <?php $jml_brg = 0;?>
+                    <?php foreach ($_SESSION["keranjang"] as $id => $jml): ?>
+                    <?php
+                    $ambil = $koneksi->query("SELECT * FROM produk WHERE id='$id'");
+                    $pecah = $ambil->fetch_assoc();
+                    $subharga = $pecah["harga"]*$jml;
+                    $satuan = $subharga/1000;
+                    ?>
                     <tr class="border-bottom">
-                      <th class="ps-0 pt-0">Apple MacBook Pro 15" x 1
-                        <div class="text-400 fw-normal fs--2">Z0V20008N: 2.9GHz 6-core 8th-Gen Intel Core i9, 32GB RAM</div>
+                      <th class="ps-0 pt-0"><?=$pecah['nama_produk']?> x <?=$jml?>
+                        <div class="text-400 fw-normal fs--2" style="white-space: pre-line;"><?=$pecah['deskripsi']?></div>
                       </th>
-                      <th class="pe-0 text-end pt-0">$1345</th>
+                      <th class="pe-0 text-end pt-0"><?=$satuan?>K</th>
                     </tr>
-                    <tr class="border-bottom">
-                      <th class="ps-0">Apple iMac Pro x 1
-                        <div class="text-400 fw-normal fs--2">27-inch with Retina 5K Display, 3.0GHz 10-core Intel Xeon W, 1TB</div>
-                      </th>
-                      <th class="pe-0 text-end">$2010</th>
-                    </tr>
-                    <tr class="border-bottom">
-                      <th class="ps-0">Subtotal</th>
-                      <th class="pe-0 text-end">$3355</th>
-                    </tr>
-                    <tr class="border-bottom">
-                      <th class="ps-0">Coupon: <span class="text-success">40SITEWIDE</span></th>
-                      <th class="pe-0 text-end">-$55</th>
-                    </tr>
-                    <tr class="border-bottom">
-                      <th class="ps-0">Shipping</th>
-                      <th class="pe-0 text-end">$20</th>
-                    </tr>
-                    <tr>
-                      <th class="ps-0 pb-0">Total</th>
-                      <th class="pe-0 text-end pb-0">$3320</th>
-                    </tr>
+                    <?php $totalbelanja+=$subharga; ?>
+                    <?php $jml_brg+=$jml?>
+                    <?php endforeach; ?>
                   </table>
                 </div>
                 <div class="card-footer d-flex justify-content-between bg-light">
-                  <div class="fw-semi-bold">Payable Total</div>
-                  <div class="fw-bold">$3320</div>
+                  <div class="fw-semi-bold">Total Bayar</div>
+                  <div class="fw-bold">Rp.<?=number_format($totalbelanja)?></div>
                 </div>
               </div>
             </div>
