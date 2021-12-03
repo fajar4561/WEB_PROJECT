@@ -6,7 +6,12 @@ $jumlah = $_POST['jumlah'];
 
 if (isset($_SESSION['keranjang'][$id]))
 {
-	$_SESSION['keranjang'][$id]=$jumlah;
+	if ($jumlah > 1) {
+		$_SESSION['keranjang'][$id]=$jumlah;
+	}
+	else {
+		unset($_SESSION["keranjang"][$id]);
+	}
 }
 
 echo "<script>location='keranjang.php';</script>";
