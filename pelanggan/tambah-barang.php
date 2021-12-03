@@ -14,5 +14,5 @@ if (isset($_SESSION['keranjang'][$id]))
 	}
 }
 
-echo "<script>location='keranjang.php';</script>";
+echo "<script>location='keranjang';</script>";
  ?>

@@ -13,5 +13,5 @@ else
 }
 
 echo "<script>alert('produk telah masuk ke keranjang belanja');</script>";
-echo "<script>location='keranjang.php';</script>";
+echo "<script>location='keranjang';</script>";
  ?>
