@@ -46,7 +46,7 @@ session_start();
                 <div class="col-md-auto">
                   <h5 class="mb-3 mb-md-0">Keranjang Belanja</h5>
                 </div>
-                <div class="col-md-auto"><a class="btn btn-sm btn-outline-secondary border-300 me-2" href="produk"> <span class="fas fa-chevron-left me-1" data-fa-transform="shrink-4"></span>Kembali belanja</a><a class="btn btn-sm btn-primary" href="../../app/e-commerce/checkout.html">Checkout</a></div>
+                <div class="col-md-auto"><a class="btn btn-sm btn-outline-secondary border-300 me-2" href="produk"> <span class="fas fa-chevron-left me-1" data-fa-transform="shrink-4"></span>Kembali belanja</a></div>
               </div>
             </div>
             <div class="card-body p-0">
@@ -112,7 +112,7 @@ session_start();
                   <input class="form-control" type="text" placeholder="Promocode" />
                   <button class="btn btn-outline-secondary border-300 btn-sm" type="submit">Apply</button>
                 </div>
-              </form><a class="btn btn-sm btn-primary" href="../../app/e-commerce/checkout.html">Checkout</a>
+              </form><a class="btn btn-sm btn-primary" href="checkout">Checkout</a>
             </div>
           </div>
           <?php include 'komponen/bawah.php';?>
