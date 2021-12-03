@@ -2,6 +2,7 @@
 session_start();
 $id= $_POST['id'];
 $jumlah = $_POST['jumlah'];
+$produk = $_POST['produk'];
  
 
 if (isset($_SESSION['keranjang'][$id]))
@@ -13,6 +14,7 @@ else
 	$_SESSION['keranjang'][$id]=$jumlah;
 }
 
-echo "<script>alert('produk telah masuk ke keranjang belanja');</script>";
+$_SESSION['pesan'] = $produk.' '. 'berhasil di tambahkan';
+$_SESSION['warna'] = 'bg-primary';
 echo "<script>location='keranjang';</script>";
  ?>

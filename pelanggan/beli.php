@@ -1,6 +1,7 @@
 <?php
 session_start();
 $id= $_GET['id'];
+$produk = $_GET['produk'];
 
 
 if (isset($_SESSION['keranjang'][$id]))
@@ -12,6 +13,7 @@ else
 	$_SESSION['keranjang'][$id]=1;
 }
 
-echo "<script>alert('produk telah masuk ke keranjang belanja');</script>";
+$_SESSION['pesan'] = $produk.' '. 'berhasil di tambahkan';
+$_SESSION['warna'] = 'bg-primary';
 echo "<script>location='keranjang';</script>";
  ?>

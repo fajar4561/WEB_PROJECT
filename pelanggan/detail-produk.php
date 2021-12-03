@@ -50,9 +50,10 @@ $pecah=$ambil->fetch_assoc();
                       <div class="col-auto pe-0">
                         <div class="input-group input-group-sm" data-quantity="data-quantity">
                           <button class="btn btn-sm btn-outline-secondary border-300" type="button" data-field="input-quantity" data-type="minus">-</button>
-                          <input class="form-control text-center input-quantity input-spin-none" type="number" name="jumlah" min="0" value="0" aria-label="Amount (to the nearest dollar)" style="max-width: 50px" />
+                          <input class="form-control text-center input-quantity input-spin-none" type="number" name="jumlah" min="0" value="1" aria-label="Amount (to the nearest dollar)" style="max-width: 50px" />
                           <button class="btn btn-sm btn-outline-secondary border-300" type="button" data-field="input-quantity" data-type="plus">+</button>
                           <input type="hidden" name="id" value="<?=$pecah['id']?>">
+                          <input type="hidden" name="produk" value="<?=$pecah['nama_produk']?>">
                         </div>
                       </div>
                       <div class="col-auto px-2 px-md-3"><button class="btn btn-sm btn-primary" type="submit"><span class="fas fa-cart-plus me-sm-2"></span><span class="d-none d-sm-inline-block">Beli</span></button></div>

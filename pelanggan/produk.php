@@ -86,7 +86,7 @@ session_start();
                     <div class="d-flex flex-between-center px-3">
                       <div><span class="fa fa-star text-warning"></span><span class="fa fa-star text-warning"></span><span class="fa fa-star text-warning"></span><span class="fa fa-star text-warning"></span><span class="fa fa-star text-300"></span><span class="ms-1">(8)</span>
                       </div>
-                      <div><a class="btn btn-sm btn-falcon-default" href="beli?kode=<?=$d['kode_produk']?>&id=<?=$d['id']?>" data-bs-toggle="tooltip" data-bs-placement="top" title="Masukkan Keranjang"><span class="fas fa-cart-plus"></span></a></div>
+                      <div><a class="btn btn-sm btn-falcon-default" href="beli?kode=<?=$d['kode_produk']?>&id=<?=$d['id']?>&produk=<?=$d['nama_produk']?>" data-bs-toggle="tooltip" data-bs-placement="top" title="Masukkan Keranjang"><span class="fas fa-cart-plus"></span></a></div>
                     </div>
                   </div>
                 </div>

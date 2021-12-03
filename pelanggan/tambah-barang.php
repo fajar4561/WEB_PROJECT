@@ -6,13 +6,12 @@ $jumlah = $_POST['jumlah'];
 
 if (isset($_SESSION['keranjang'][$id]))
 {
-	if ($jumlah >= 1) {
-		$_SESSION['keranjang'][$id]=$jumlah;
-	}
-	else {
-		unset($_SESSION["keranjang"][$id]);
-	}
+	
+	$_SESSION['keranjang'][$id]=$jumlah;
+	
 }
+$_SESSION['pesan'] = 'Barang berhasil di tambahkan';
+$_SESSION['warna'] = 'bg-primary';
 
 echo "<script>location='keranjang';</script>";
  ?>

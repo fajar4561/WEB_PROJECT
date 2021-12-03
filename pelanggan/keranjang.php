@@ -21,13 +21,32 @@ session_start();
         </script>
         <div class="content">
           <?php include 'komponen/topbar.php';?>
+          <!-- Notifikasi Toast -->
+          <?php
+              if (isset($_SESSION['pesan']) && $_SESSION['pesan'] <> '')
+              {
+                echo 
+                '
+                <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5">
+                <div class="toast show" role="alert" data-bs-autohide="false" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header '.$_SESSION['warna'].' text-white"><strong class="me-auto">Notifikasi</strong><small class="text-muted">Sistem</small>
+                <button class="btn-close btn-close-white" type="button" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body">'.$_SESSION['pesan'].'</div>
+                </div>
+                </div>   
+                ';
+              }
+              $_SESSION['pesan'] = '';
+           ?>
+          <!-- End Notifikasi Toast -->
           <div class="card">
             <div class="card-header">
               <div class="row justify-content-between">
                 <div class="col-md-auto">
                   <h5 class="mb-3 mb-md-0">Keranjang Belanja</h5>
                 </div>
-                <div class="col-md-auto"><a class="btn btn-sm btn-outline-secondary border-300 me-2" href="../../app/e-commerce/product/product-list.html"> <span class="fas fa-chevron-left me-1" data-fa-transform="shrink-4"></span>Continue Shopping</a><a class="btn btn-sm btn-primary" href="../../app/e-commerce/checkout.html">Checkout</a></div>
+                <div class="col-md-auto"><a class="btn btn-sm btn-outline-secondary border-300 me-2" href="produk"> <span class="fas fa-chevron-left me-1" data-fa-transform="shrink-4"></span>Kembali belanja</a><a class="btn btn-sm btn-primary" href="../../app/e-commerce/checkout.html">Checkout</a></div>
               </div>
             </div>
             <div class="card-body p-0">
@@ -54,7 +73,7 @@ session_start();
                   <div class="d-flex align-items-center"><a href="detail-produk?kode=<?=$pecah['kode_produk']?>"><img class="img-fluid rounded-1 me-3 d-none d-md-block" src="../fotoproduk/<?=$pecah['foto']?>" alt="" width="60" /></a>
                     <div class="flex-1">
                       <h5 class="fs-0"><a class="text-900 text-uppercase" href="detail-produk?kode=<?=$pecah['kode_produk']?>"><?=$pecah['nama_produk']?></a></h5>
-                      <div class="fs--2 fs-md--1"><a class="text-danger" href="hapus-keranhang?id=<?=$pecah['id']?>" data-bs-toggle="tooltip" data-bs-placement="right" title="Hapus <?=$pecah['nama_produk']?>">Hapus</a></div>
+                      <div class="fs--2 fs-md--1"><a class="text-danger" href="hapus-keranjang?id=<?=$pecah['id']?>&produk=<?=$pecah['nama_produk']?>" data-bs-toggle="tooltip" data-bs-placement="right" title="Hapus <?=$pecah['nama_produk']?>">Hapus</a></div>
                     </div>
                   </div>
                 </div>
@@ -103,5 +122,9 @@ session_start();
     <!-- ===============================================-->
     <!--    End of Main Content-->
     <!-- ===============================================-->
+    <script>
+      $(document).ready(function(){setTimeout(function(){$("#pesan").fadeIn('slow');}, 500);});
+      setTimeout(function(){$("#pesan").fadeOut('slow');}, 3000);
+    </script>
     <?php include 'komponen/kustom.php';?>
     <?php include 'komponen/footer.php';?>
