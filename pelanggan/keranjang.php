@@ -54,7 +54,7 @@ session_start();
                   <div class="d-flex align-items-center"><a href="detail-produk?kode=<?=$pecah['kode_produk']?>"><img class="img-fluid rounded-1 me-3 d-none d-md-block" src="../fotoproduk/<?=$pecah['foto']?>" alt="" width="60" /></a>
                     <div class="flex-1">
                       <h5 class="fs-0"><a class="text-900 text-uppercase" href="detail-produk?kode=<?=$pecah['kode_produk']?>"><?=$pecah['nama_produk']?></a></h5>
-                      <div class="fs--2 fs-md--1"><a class="text-danger" href="#!">Hapus</a></div>
+                      <div class="fs--2 fs-md--1"><a class="text-danger" href="hapus-keranhang?id=<?=$pecah['id']?>" data-bs-toggle="tooltip" data-bs-placement="right" title="Hapus <?=$pecah['nama_produk']?>">Hapus</a></div>
                     </div>
                   </div>
                 </div>

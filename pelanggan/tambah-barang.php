@@ -6,7 +6,7 @@ $jumlah = $_POST['jumlah'];
 
 if (isset($_SESSION['keranjang'][$id]))
 {
-	if ($jumlah > 1) {
+	if ($jumlah >= 1) {
 		$_SESSION['keranjang'][$id]=$jumlah;
 	}
 	else {
