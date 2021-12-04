@@ -57,77 +57,51 @@ session_start();
               </div>
             </div>
             <div class="col-xl-8">
-              <div class="card mb-3">
-                <div class="card-header bg-light">
-                  <div class="row flex-between-center">
-                    <div class="col-sm-auto">
-                      <h5 class="mb-2 mb-sm-0">Your Shipping Address</h5>
-                    </div>
-                    <div class="col-sm-auto"><a class="btn btn-falcon-default btn-sm" href="#!"><span class="fas fa-plus me-2" data-fa-transform="shrink-2"></span>Add New Address </a></div>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col-md-6 mb-3 mb-md-0">
-                      <div class="form-check mb-0 custom-radio radio-select">
-                        <input class="form-check-input" id="address-1" type="radio" name="clientName" checked="checked" />
-                        <label class="form-check-label mb-0 fw-bold d-block" for="address-1">Antony Hopkins<span class="radio-select-content"><span> 2392 Main Avenue,<br/>Pensaukee,<br/>New Jersey 02139<span class="d-block mb-0 pt-2">+(856) 929-229</span></span></span></label><a class="fs--1" href="#!">Edit</a>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="position-relative">
-                        <div class="form-check mb-0 custom-radio radio-select">
-                          <input class="form-check-input" id="address-2" type="radio" name="clientName" />
-                          <label class="form-check-label mb-0 fw-bold d-block" for="address-2">Robert Bruce<span class="radio-select-content"><span>3448 Ile De France St #242<br/>Fort Wainwright, <br/>Alaska, 99703<span class="d-block mb-0 pt-2">+(901) 637-734</span></span></span></label><a class="fs--1" href="#!">Edit</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
               <div class="card">
                 <div class="card-header bg-light">
-                  <h5 class="mb-0">Payment Method</h5>
+                  <h5 class="mb-0">Form Pembeli</h5>
                 </div>
                 <div class="card-body">
                   <form>
-                    <div class="form-check mb-0">
-                      <input class="form-check-input" type="radio" value="" id="credit-card" checked="checked" name="payment-method" />
-                      <label class="form-check-label mb-2 fs-1" for="credit-card">Credit Card
-                      </label>
-                    </div>
                     <div class="row gx-0 ps-2 mb-4">
                       <div class="col-sm-8 px-3">
                         <div class="mb-3">
-                          <label class="form-label ls text-uppercase text-600 fw-semi-bold mb-0" for="inputNumber">Card Number</label>
-                          <input class="form-control" id="inputNumber" type="text" placeholder="•••• •••• •••• ••••" />
+                          <label class="form-label ls text-uppercase text-600 fw-semi-bold mb-0" for="inputNumber">Nama</label>
+                          <input class="form-control" name="nama" type="text" placeholder="Nama Pembeli"  />
                         </div>
                         <div class="row align-items-center">
                           <div class="col-6">
-                            <label class="form-label ls text-uppercase text-600 fw-semi-bold mb-0">Exp Date</label>
-                            <input class="form-control" type="text" placeholder="mm/yyyy" />
+                            <label class="form-label ls text-uppercase text-600 fw-semi-bold mb-0">No Telpon</label>
+                            <input class="form-control" type="text" placeholder="Whastapp / Telpon" />
                           </div>
                           <div class="col-6">
-                            <label class="form-label ls text-uppercase text-600 fw-semi-bold mb-0">CVV<a class="d-inline-block" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Card verification value"><span class="fa fa-question-circle ms-2"></span></a></label>
-                            <input class="form-control" type="text" placeholder="123" maxlength="3" pattern="[0-9]{3}" />
+                            <label class="form-label ls text-uppercase text-600 fw-semi-bold mb-0">Alamat<a class="d-inline-block" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Alamat Pembeli"><span class="fa fa-question-circle ms-2"></span></a></label>
+                            <input class="form-control" type="text" placeholder="Alamat" />
                           </div>
+                        </div>
+                        <div class="row align-items-center mt-4">
+                          <div class="col-12">
+                            <label class="form-label ls text-uppercase text-600 fw-semi-bold mb-0">Rating</label>
+                            <select class="form-control">
+                              <option><span class="fa fa-star ms-2 text-warning">1</span></option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="row align-items-center mt-4">
+                          <label class="form-label ls text-uppercase text-600 fw-semi-bold mb-0">Komentar</label>
+                          <textarea class="form-control" id="basic-form-textarea" rows="3" placeholder="Description"></textarea>
                         </div>
                       </div>
                       <div class="col-4 ps-3 text-center pt-2 d-none d-sm-block">
                         <div class="rounded-1 p-2 mt-3 bg-100">
-                          <div class="text-uppercase fs--2 fw-bold">We Accept</div><img src="../../assets/img/icons/icon-payment-methods-grid.png" alt="" width="120" />
+                          <div class="text-uppercase fs--2 fw-bold">We Accept</div><img src="../assets/img/icons/icon-payment-methods-grid.png" alt="" width="120" />
                         </div>
                       </div>
-                    </div>
-                    <div class="form-check d-flex align-items-center">
-                      <input class="form-check-input" type="radio" value="" id="paypal" name="payment-method" />
-                      <label class="form-check-label mb-0 ms-2" for="paypal"><img src="../../assets/img/icons/icon-paypal-full.png" height="20" alt="" />
-                      </label>
                     </div>
                     <div class="border-dashed-bottom my-5"></div>
                     <div class="row">
                       <div class="col-md-7 col-xl-12 col-xxl-7 px-md-3 mb-xxl-0 position-relative">
-                        <div class="d-flex"><img class="me-3" src="../../assets/img/icons/shield.png" alt="" width="60" height="60" />
+                        <div class="d-flex"><img class="me-3" src="../assets/img/icons/shield.png" alt="" width="60" height="60" />
                           <div class="flex-1">
                             <h5 class="mb-2">Buyer Protection</h5>
                             <div class="form-check mb-0">

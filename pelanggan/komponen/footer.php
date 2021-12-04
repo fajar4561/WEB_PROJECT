@@ -11,6 +11,7 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
     <script src="../vendors/list.js/list.min.js"></script>
     <script src="../assets/js/theme.js"></script>
+    <script src="../vendors/rater-js/index.js"> </script>
 
   </body>
 
