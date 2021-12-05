@@ -15,6 +15,15 @@ $huruf='A';
 $kodeTransaksi = $huruf. $penyebut. sprintf("%03s", $urutan);
 
 include 'rupiah.php';
+
+ if (empty($_SESSION["keranjang"]) OR !isset($_SESSION["keranjang"]))
+{
+
+echo "<script>alert('keranjang kosong!!! silahkan lakukan pemesanan terlebih dahulu');</script>";
+echo "<script>location='produk';</script>";
+
+}
+
 ?>
   <body>
 

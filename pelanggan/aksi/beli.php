@@ -56,7 +56,7 @@ foreach ($_SESSION["keranjang"] as $id => $jml)
 		$koneksi->query("UPDATE produk SET stok ='$sisa' WHERE kode_produk='$kode_produk' ");		
 	}
 
-unset($_SESSION["beli"]);
+unset($_SESSION["keranjang"]);
 echo "<script>alert('Pembelian Telah Berhasil');</script>";
 echo "<script>location='../cetak-nota?kode=$kode';</script>"; 
 	

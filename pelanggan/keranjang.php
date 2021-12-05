@@ -3,6 +3,13 @@ $judul = 'App | Keranjang';
 include 'komponen/header.php';
 include '../koneksi.php';
 session_start();
+ if (empty($_SESSION["keranjang"]) OR !isset($_SESSION["keranjang"]))
+{
+
+echo "<script>alert('keranjang kosong!!! silahkan lakukan pemesanan terlebih dahulu');</script>";
+echo "<script>location='produk';</script>";
+
+}
 ?>
   <body>
 
