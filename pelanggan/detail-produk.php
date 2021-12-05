@@ -4,7 +4,95 @@ include 'komponen/header.php';
 include '../koneksi.php';
 $kode = $_GET['kode'];
 $ambil=$koneksi->query("SELECT * FROM produk WHERE kode_produk='$kode'");
-$pecah=$ambil->fetch_assoc(); 
+$pecah=$ambil->fetch_assoc();
+
+
+// mencari total barang terjual
+$pemasukan=mysqli_query($koneksi,"SELECT * FROM detail_beli WHERE kode_produk='$kode'");
+while ($masuk=mysqli_fetch_array($pemasukan)){
+  $arraymasuk[] = $masuk['jumlah'];
+  $arrayrating[] = $masuk['rating'];
+}
+$jmltransaksi = mysqli_num_rows($pemasukan);
+$jumlahterjual= array_sum($arraymasuk);
+$jml_rating = array_sum($arrayrating);
+
+$rating = $jml_rating/$jmltransaksi;
+
+// Tampilan Rating
+if ($rating == 1 ) {
+  $tampil_rating = '<span class="fa fa-star text-warning"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>';
+}
+if ($rating > 1 ) {
+  $tampil_rating = '<span class="fa fa-star text-warning"></span>
+  <span class="fa fa-star-half-alt text-warning star-icon"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>';
+}
+if ($rating == 2 ) {
+ $tampil_rating = '<span class="fa fa-star text-warning"></span>
+  <span class="fa fa-star text-warning"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>'; 
+}
+if ($rating > 2 ) {
+  $tampil_rating = '<span class="fa fa-star text-warning"></span>
+  <span class="fa fa-star text-warning"></span>
+  <span class="fa fa-star-half-alt text-warning star-icon"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>'; 
+}
+if ($rating == 3 ) {
+  $tampil_rating = '<span class="fa fa-star text-warning"></span>
+  <span class="fa fa-star text-warning"></span>
+  <span class="fa fa-star text-warning"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>'; 
+}
+if ($rating > 3 ) {
+  $tampil_rating = '<span class="fa fa-star text-warning"></span>
+  <span class="fa fa-star text-warning"></span>
+  <span class="fa fa-star text-warning"></span>
+  <span class="fa fa-star-half-alt text-warning star-icon"></span>
+  <span class="fa fa-star"></span>'; 
+}
+if ($rating == 4 ) {
+  $tampil_rating = '<span class="fa fa-star text-warning"></span>
+  <span class="fa fa-star text-warning"></span>
+  <span class="fa fa-star text-warning"></span>
+  <span class="fa fa-star text-warning"></span>
+  <span class="fa fa-star"></span>'; 
+}
+if ($rating > 4 ) {
+  $tampil_rating = '<span class="fa fa-star text-warning"></span>
+  <span class="fa fa-star text-warning"></span>
+  <span class="fa fa-star text-warning"></span>
+  <span class="fa fa-star text-warning"></span>
+  <span class="fa fa-star-half-alt text-warning star-icon"></span>'; 
+}
+if ($rating == 5 ) {
+  $tampil_rating = '<span class="fa fa-star text-warning"></span>
+  <span class="fa fa-star text-warning"></span>
+  <span class="fa fa-star text-warning"></span>
+  <span class="fa fa-star text-warning"></span>
+  <span class="fa fa-star text-warning"></span>'; 
+}
+
+
+if (empty($jumlahterjual) OR !isset($jumlahterjual)) {
+  $terjual ='0';
+}
+else {
+  $terjual=$jumlahterjual;
+}
+
+
 ?>
   <body>
 
@@ -37,12 +125,12 @@ $pecah=$ambil->fetch_assoc();
                 </div>
                 <div class="col-lg-6">
                   <h5 class="text-uppercase"><?=$pecah['nama_produk']?></h5><a class="fs--1 mb-2 d-block" href="#!"><?=$pecah['katagori']?></a>
-                  <div class="fs--2 mb-3 d-inline-block text-decoration-none"><span class="fa fa-star text-warning"></span><span class="fa fa-star text-warning"></span><span class="fa fa-star text-warning"></span><span class="fa fa-star text-warning"></span><span class="fa fa-star-half-alt text-warning star-icon"></span><span class="ms-1 text-600">(8)</span>
+                  <div class="fs--2 mb-3 d-inline-block text-decoration-none"><?=$tampil_rating?><span class="ms-1 text-600">(<?=round($rating,1)?>)</span>
                   </div>
                   <p class="fs--1" style="white-space: pre-line;"><?=$pecah['deskripsi']?></p>
                   <h4 class="d-flex align-items-center"><span class="text-warning me-2">Rp.<?=number_format($pecah['harga'])?></span><span class="me-1 fs--1 text-500">
                       <del class="me-1">$2400</del><strong>-50%</strong></span></h4>
-                  <p class="fs--1 mb-1"> <span>Shipping Cost: </span><strong>$50</strong></p>
+                  <p class="fs--1 mb-1"> <span>Produk Terjual: </span><strong> <?=$terjual?></strong></p>
                   <p class="fs--1">Stock: <strong class="text-success">Available</strong></p>
                   <p class="fs--1 mb-3">Tags: <a class="ms-2" href="#!">Sepatu,</a><a class="ms-1" href="#!"><?=$pecah['katagori']?>,</a><a class="ms-1" href="#!">Olahraga</a></p>
                   <form method="post" action="beli2">
