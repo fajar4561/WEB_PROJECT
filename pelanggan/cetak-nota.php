@@ -15,6 +15,10 @@ $huruf='A';
 $kodeTransaksi = $huruf. $penyebut. sprintf("%03s", $urutan);
 
 include 'rupiah.php';
+
+$kode = $_GET['kode'];
+$ambil=$koneksi->query("SELECT * FROM beli WHERE kode_transaksi='$kode'");
+$pecah=$ambil->fetch_assoc(); 
 ?>
   <body>
 
@@ -35,10 +39,10 @@ include 'rupiah.php';
           <div class="card mb-3">
             <div class="card-body">
               <div class="row align-items-center text-center mb-3">
-                <div class="col-sm-6 text-sm-start"><img src="../assets/img/logos/logo-invoice.png" alt="invoice" width="150" /></div>
+                <div class="col-sm-6 text-sm-start"><img src="nota.png" alt="invoice" width="150" /></div>
                 <div class="col text-sm-end mt-3 mt-sm-0">
-                  <h2 class="mb-3">Invoice</h2>
-                  <h5>Falcon Design Studio</h5>
+                  <h2 class="mb-3">Nota</h2>
+                  <h5>Shey Sports Shop</h5>
                   <p class="fs--1 mb-0">156 University Ave, Toronto<br />On, Canada, M5H 2H7</p>
                 </div>
                 <div class="col-12">
@@ -48,33 +52,28 @@ include 'rupiah.php';
               <div class="row align-items-center">
                 <div class="col">
                   <h6 class="text-500">Invoice to</h6>
-                  <h5>Antonio Banderas</h5>
-                  <p class="fs--1">1954 Bloor Street West<br />Torronto ON, M6P 3K9<br />Canada</p>
-                  <p class="fs--1"><a href="mailto:example@gmail.com">example@gmail.com</a><br /><a href="tel:444466667777">+4444-6666-7777</a></p>
+                  <h5><?=$pecah['nama']?></h5>
+                  <p class="fs--1">Alamat : <?=$pecah['alamat']?><br />No Telephon : <?=$pecah['telpon']?><br /></p>
                 </div>
                 <div class="col-sm-auto ms-auto">
                   <div class="table-responsive">
                     <table class="table table-sm table-borderless fs--1">
                       <tbody>
                         <tr>
-                          <th class="text-sm-end">Invoice No:</th>
-                          <td>14</td>
+                          <th class="text-sm-end">No Nota:</th>
+                          <td><?=$pecah['id']?></td>
                         </tr>
                         <tr>
-                          <th class="text-sm-end">Order Number:</th>
-                          <td>AD20294</td>
+                          <th class="text-sm-end">No Order:</th>
+                          <td><?=$pecah['kode_transaksi']?></td>
                         </tr>
                         <tr>
-                          <th class="text-sm-end">Invoice Date:</th>
-                          <td>2018-09-25</td>
-                        </tr>
-                        <tr>
-                          <th class="text-sm-end">Payment Due:</th>
-                          <td>Upon receipt</td>
+                          <th class="text-sm-end">Tanggal Beli:</th>
+                          <td><?=date('d F Y', strtotime($pecah['tgl_beli']));?></td>
                         </tr>
                         <tr class="alert-success fw-bold">
-                          <th class="text-sm-end">Amount Due:</th>
-                          <td>$19688.40</td>
+                          <th class="text-sm-end">Total Belanja:</th>
+                          <td>Rp.<?=number_format($pecah['total'])?></td>
                         </tr>
                       </tbody>
                     </table>
@@ -85,70 +84,38 @@ include 'rupiah.php';
                 <table class="table table-striped border-bottom">
                   <thead class="light">
                     <tr class="bg-primary text-white dark__bg-1000">
-                      <th class="border-0">Products</th>
-                      <th class="border-0 text-center">Quantity</th>
-                      <th class="border-0 text-end">Rate</th>
-                      <th class="border-0 text-end">Amount</th>
+                      <th class="border-0">Produk</th>
+                      <th class="border-0 text-center">Qtyy</th>
+                      <th class="border-0 text-end">Harga</th>
+                      <th class="border-0 text-end">Total</th>
                     </tr>
                   </thead>
                   <tbody>
+                    <?php
+                    $ambildata = $koneksi->query("SELECT * FROM detail_beli INNER JOIN produk ON produk.kode_produk=detail_beli.kode_produk WHERE kode_transaksi ='$kode' ORDER BY total DESC ");
+                    $no = 1;
+                    $total = 0;
+                    while ($data = mysqli_fetch_assoc($ambildata)) {
+                     ?>
                     <tr>
                       <td class="align-middle">
-                        <h6 class="mb-0 text-nowrap">Platinum web hosting package</h6>
-                        <p class="mb-0">Down 35mb, Up 100mb</p>
+                        <h6 class="mb-0 text-nowrap"><?=$data['nama_produk']?></h6>
+                        <p class="mb-0"><?=$data['deskripsi']?></p>
                       </td>
-                      <td class="align-middle text-center">2</td>
-                      <td class="align-middle text-end">$65.00</td>
-                      <td class="align-middle text-end">$130.00</td>
+                      <td class="align-middle text-center"><?=$data['jumlah']?></td>
+                      <td class="align-middle text-end">Rp.<?=number_format($data['harga'])?></td>
+                      <td class="align-middle text-end">Rp.<?=number_format($data['total'])?></td>
                     </tr>
-                    <tr>
-                      <td class="align-middle">
-                        <h6 class="mb-0 text-nowrap">2 Page website design</h6>
-                        <p class="mb-0">Includes basic wireframes and responsive templates</p>
-                      </td>
-                      <td class="align-middle text-center">1</td>
-                      <td class="align-middle text-end">$2,100.00</td>
-                      <td class="align-middle text-end">$2,100.00</td>
-                    </tr>
-                    <tr>
-                      <td class="align-middle">
-                        <h6 class="mb-0 text-nowrap">Mobile App Development</h6>
-                        <p class="mb-0">Includes responsive navigation</p>
-                      </td>
-                      <td class="align-middle text-center">8</td>
-                      <td class="align-middle text-end">$5,00.00</td>
-                      <td class="align-middle text-end">$4,000.00</td>
-                    </tr>
-                    <tr>
-                      <td class="align-middle">
-                        <h6 class="mb-0 text-nowrap">Web App Development</h6>
-                        <p class="mb-0">Includes react spa</p>
-                      </td>
-                      <td class="align-middle text-center">6</td>
-                      <td class="align-middle text-end">$2,000.00</td>
-                      <td class="align-middle text-end">$12,000.00</td>
-                    </tr>
+                    <?php } ?>
                   </tbody>
                 </table>
               </div>
               <div class="row justify-content-end">
                 <div class="col-auto">
                   <table class="table table-sm table-borderless fs--1 text-end">
-                    <tr>
-                      <th class="text-900">Subtotal:</th>
-                      <td class="fw-semi-bold">$18,230.00 </td>
-                    </tr>
-                    <tr>
-                      <th class="text-900">Tax 8%:</th>
-                      <td class="fw-semi-bold">$1458.40</td>
-                    </tr>
-                    <tr class="border-top">
-                      <th class="text-900">Total:</th>
-                      <td class="fw-semi-bold">$19688.40</td>
-                    </tr>
                     <tr class="border-top border-top-2 fw-bolder text-900">
-                      <th>Amount Due:</th>
-                      <td>$19688.40</td>
+                      <th>Total Bayar:</th>
+                      <td>Rp.<?=number_format($pecah['total'])?></td>
                     </tr>
                   </table>
                 </div>
@@ -160,7 +127,10 @@ include 'rupiah.php';
           </div>
         </div>
       </div>
-    </main>      
+    </main>
+    <script>
+        window.print();
+    </script>                 
     <!-- ===============================================-->
     <!--    End of Main Content-->
     <!-- ===============================================-->
