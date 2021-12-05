@@ -58,7 +58,7 @@ foreach ($_SESSION["keranjang"] as $id => $jml)
 
 unset($_SESSION["beli"]);
 echo "<script>alert('Pembelian Telah Berhasil');</script>";
-echo "<script>location='../cetak-nota?kode=$kode';</script>"; 
+echo "<script>location='cetak-nota?kode=$kode';</script>"; 
 	
 
 
