@@ -74,7 +74,7 @@ include 'rupiah.php';
                   <h5 class="mb-0">Form Pembeli</h5>
                 </div>
                 <div class="card-body">
-                  <form class="needs-validation" novalidate="">
+                  <form class="needs-validation" novalidate="" method="post" action="aksi/beli">
                     <div class="row gx-0 ps-2 mb-4">
                       <div class="col-sm-8 px-3">
                         <div class="row mb-3">
@@ -102,7 +102,7 @@ include 'rupiah.php';
                             <label class="form-label ls text-uppercase text-600 fw-semi-bold mb-0">Alamat<a class="d-inline-block" href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Alamat Pembeli"><span class="fa fa-question-circle ms-2"></span></a></label>
                             <input class="form-control" type="text" name="alamat"  placeholder="Alamat Pembeli" required />
                             <div class="invalid-feedback mt-0">Pastikan Anda mengisi alamat.</div>
-                            <input type="hidden" name="total">
+                            <input type="hidden" name="total" value="<?=$totalbelanja?>">
                           </div>
                         </div>
                         <div class="row align-items-center mt-4">
@@ -170,8 +170,8 @@ include 'rupiah.php';
                         <div class="border-dashed-bottom d-block d-md-none d-xl-block d-xxl-none my-4"></div>
                         <div class="fs-2 fw-semi-bold">Total: <span class="text-primary">Rp.<?=number_format($totalbelanja)?></span></div>
                         <p class="fs--1 mt-0 mb-0">(<?=terbilang($totalbelanja)?>)</p>
-                        <button class="btn btn-success mt-3 px-5" type="submit">Confirm &amp; Pay</button>
-                        <p class="fs--1 mt-3 mb-0">By clicking <strong>Confirm & Pay </strong>button you agree to the <a href="#!">Terms &amp; Conditions</a></p>
+                        <button class="btn btn-success mt-3 px-5" type="submit">Setuju &amp; Bayar</button>
+                        <p class="fs--1 mt-3 mb-0">By clicking <strong>Setuju & Bayar </strong>button you agree to the <a href="#!">Terms &amp; Conditions</a></p>
                       </div>
                     </div>
                   </form>
