@@ -66,6 +66,84 @@ session_start();
                 $data_produk = mysqli_query($koneksi,"select * from produk limit $halaman_awal, $batas");
                 $nomor = $halaman_awal+1;
                 while($d = mysqli_fetch_array($data_produk)){
+
+                  $kode = $d['kode_produk'];
+                  $pemasukan=mysqli_query($koneksi,"SELECT * FROM detail_beli WHERE kode_produk='$kode'");
+                  $jml_rating = 0;
+                  $jumlahterjual = 0;
+                  while ($masuk=mysqli_fetch_array($pemasukan)){
+                    $arraymasuk = $masuk['jumlah'];
+                    $arrayrating = $masuk['rating'];
+                    $jmltransaksi = mysqli_num_rows($pemasukan);
+                  $jumlahterjual += $arraymasuk;
+                  $jml_rating += $arrayrating;
+                  }                  
+
+                  $rating = $jml_rating/$jmltransaksi;
+                  // Tampilan Rating
+                  if ($rating == 1 ) {
+                    $tampil_rating = '<span class="fa fa-star text-warning"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>';
+                  }
+                  if ($rating > 1 ) {
+                    $tampil_rating = '<span class="fa fa-star text-warning"></span>
+                    <span class="fa fa-star-half-alt text-warning star-icon"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>';
+                  }
+                  if ($rating == 2 ) {
+                   $tampil_rating = '<span class="fa fa-star text-warning"></span>
+                   <span class="fa fa-star text-warning"></span>
+                   <span class="fa fa-star"></span>
+                   <span class="fa fa-star"></span>
+                   <span class="fa fa-star"></span>'; 
+                 }
+                 if ($rating > 2 ) {
+                  $tampil_rating = '<span class="fa fa-star text-warning"></span>
+                  <span class="fa fa-star text-warning"></span>
+                  <span class="fa fa-star-half-alt text-warning star-icon"></span>
+                  <span class="fa fa-star"></span>
+                  <span class="fa fa-star"></span>'; 
+                }
+                if ($rating == 3 ) {
+                  $tampil_rating = '<span class="fa fa-star text-warning"></span>
+                  <span class="fa fa-star text-warning"></span>
+                  <span class="fa fa-star text-warning"></span>
+                  <span class="fa fa-star"></span>
+                  <span class="fa fa-star"></span>'; 
+                }
+                if ($rating > 3 ) {
+                  $tampil_rating = '<span class="fa fa-star text-warning"></span>
+                  <span class="fa fa-star text-warning"></span>
+                  <span class="fa fa-star text-warning"></span>
+                  <span class="fa fa-star-half-alt text-warning star-icon"></span>
+                  <span class="fa fa-star"></span>'; 
+                }
+                if ($rating == 4 ) {
+                  $tampil_rating = '<span class="fa fa-star text-warning"></span>
+                  <span class="fa fa-star text-warning"></span>
+                  <span class="fa fa-star text-warning"></span>
+                  <span class="fa fa-star text-warning"></span>
+                  <span class="fa fa-star"></span>'; 
+                }
+                if ($rating > 4 ) {
+                  $tampil_rating = '<span class="fa fa-star text-warning"></span>
+                  <span class="fa fa-star text-warning"></span>
+                  <span class="fa fa-star text-warning"></span>
+                  <span class="fa fa-star text-warning"></span>
+                  <span class="fa fa-star-half-alt text-warning star-icon"></span>'; 
+                }
+                if ($rating == 5 ) {
+                  $tampil_rating = '<span class="fa fa-star text-warning"></span>
+                  <span class="fa fa-star text-warning"></span>
+                  <span class="fa fa-star text-warning"></span>
+                  <span class="fa fa-star text-warning"></span>
+                  <span class="fa fa-star text-warning"></span>'; 
+                }
                   ?>
                 <div class="mb-4 col-md-6 col-lg-4">
                   <div class="border shadow rounded-1 h-100 d-flex flex-column justify-content-between pb-3">
@@ -84,7 +162,7 @@ session_start();
                       </div>
                     </div>
                     <div class="d-flex flex-between-center px-3">
-                      <div><span class="fa fa-star text-warning"></span><span class="fa fa-star text-warning"></span><span class="fa fa-star text-warning"></span><span class="fa fa-star text-warning"></span><span class="fa fa-star text-300"></span><span class="ms-1">(8)</span>
+                      <div><?=$tampil_rating?><span class="ms-1">(<?=round($rating,1)?>)</span>
                       </div>
                       <div><a class="btn btn-sm btn-falcon-default" href="beli?kode=<?=$d['kode_produk']?>&id=<?=$d['id']?>&produk=<?=$d['nama_produk']?>" data-bs-toggle="tooltip" data-bs-placement="top" title="Masukkan Keranjang"><span class="fas fa-cart-plus"></span></a></div>
                     </div>
