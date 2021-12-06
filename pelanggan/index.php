@@ -25,7 +25,7 @@ include 'komponen/refresh.php';
               <h1 class="text-white fw-light">Shey <span class="typed-text fw-bold" data-typed-text='["aman","terpercaya","murah","Quality"]'></span><br />Sport Shop</h1>
               <p class="lead text-white opacity-75">Menyediakan berbagai macam alat dan perlengkapan olahraga berkualitas dan murah demi memenuhi kebutuhan olah raga anda.</p><a class="btn btn-outline-light border-2 rounded-pill btn-lg mt-4 fs-0 py-2" href="#!">Start building with the falcon<span class="fas fa-play ms-2" data-fa-transform="shrink-6 down-1"></span></a>
             </div>
-            <div class="col-xl-7 offset-xl-1 align-self-end mt-4 mt-xl-0"><a class="img-landing-banner rounded" href="../index.html"><img class="img-fluid" src="" alt="" /></a></div>
+            <div class="col-xl-7 offset-xl-1 align-self-end mt-4 mt-xl-0"><a class="img rounded" href="../index.html"><img class="img-fluid" src="" alt="" /></a></div>
           </div>
         </div>
         <!-- end of .container-->
@@ -65,8 +65,12 @@ include 'komponen/refresh.php';
       <!-- <section> begin ============================-->
       <section>
         <?php
-        $ambil=$koneksi->query("SELECT * FROM produk WHERE harga <= 200000 ORDER BY harga DESC");
+        $ambil=$koneksi->query("SELECT * FROM produk ORDER BY harga ASC");
         $pecah=$ambil->fetch_assoc();
+        $ambil2=$koneksi->query("SELECT * FROM produk ORDER BY terjual DESC");
+        $pecah2=$ambil2->fetch_assoc();
+        $ambil3=$koneksi->query("SELECT * FROM produk ORDER BY rating DESC");
+        $pecah3=$ambil3->fetch_assoc();
          ?>
 
         <div class="container">
@@ -81,23 +85,26 @@ include 'komponen/refresh.php';
             <div class="col-md col-lg-5 col-xl-4 mt-4 mt-md-0">
               <h5 class="text-danger"><span class="far fa-lightbulb me-2"></span>Produk Paling Murah</h5>
               <h3><?=$pecah['nama_produk']?></h3>
-              <p style="white-space: pre-line;"><?=substr($pecah["deskripsi"],0,200) . ' <br><br><a href=detail-produk.php?kode='.$pecah["kode_produk"].'>READMORE</a>';?></p>
+              <p class="fs--1 mb-1">Harga: <strong class="text-success">Rp.<?=number_format($pecah['harga'])?></strong></p>
+              <p style="white-space: pre-line;"><?=substr($pecah["deskripsi"],0,100) . ' <br><br><a href=detail-produk.php?kode='.$pecah["kode_produk"].'>READMORE</a>';?></p>
             </div>
           </div>
           <div class="row flex-center mt-7">
-            <div class="col-md col-lg-5 col-xl-4 pe-lg-6 order-md-2"><img class="img-fluid px-6 px-md-0" src="../assets/img/icons/spot-illustrations/49.png" alt="" /></div>
+            <div class="col-md col-lg-5 col-xl-4 pe-lg-6 order-md-2"><img class="img-fluid px-6 px-md-0 rounded-circle" src="../fotoproduk/<?=$pecah2['foto']?>" alt="" /></div>
             <div class="col-md col-lg-5 col-xl-4 mt-4 mt-md-0">
-              <h5 class="text-info"> <span class="far fa-object-ungroup me-2"></span>BUILD</h5>
-              <h3>38 Sets of components</h3>
-              <p>Build any UI effortlessly with Falcon's robust set of layouts, 38 sets of built-in elements, carefully chosen colors, typography, and css helpers.</p>
+              <h5 class="text-info"> <span class="far fa-object-ungroup me-2"></span>Produk Paling Laku</h5>
+              <h3><?=$pecah2['nama_produk']?></h3>
+              <p class="fs--1 mb-1">Harga: <strong class="text-success">Rp.<?=number_format($pecah2['harga'])?></strong></p>
+              <p style="white-space: pre-line;"><?=substr($pecah2["deskripsi"],0,100) . ' <br><br><a href=detail-produk.php?kode='.$pecah2["kode_produk"].'>READMORE</a>';?></p>
             </div>
           </div>
           <div class="row flex-center mt-7">
-            <div class="col-md col-lg-5 col-xl-4 ps-lg-6"><img class="img-fluid px-6 px-md-0" src="../assets/img/icons/spot-illustrations/48.png" alt="" /></div>
+            <div class="col-md col-lg-5 col-xl-4 ps-lg-6"><img class="img-fluid px-6 px-md-0 rounded-circle" src="../fotoproduk/<?=$pecah3['foto']?>" alt="" /></div>
             <div class="col-md col-lg-5 col-xl-4 mt-4 mt-md-0">
-              <h5 class="text-success"><span class="far fa-paper-plane me-2"></span>DEPLOY</h5>
-              <h3>Review and test</h3>
-              <p>From IE to iOS, rigorously tested and optimized Falcon will give the near perfect finishing to your webapp; from the landing page to the logout screen.</p>
+              <h5 class="text-success"><span class="far fa-paper-plane me-2"></span>Produk Paling Populer</h5>
+              <h3><?=$pecah3['nama_produk']?></h3>
+              <p class="fs--1 mb-1">Harga: <strong class="text-success">Rp.<?=number_format($pecah3['harga'])?></strong></p>
+              <p style="white-space: pre-line;"><?=substr($pecah3["deskripsi"],0,100) . ' <br><br><a href=detail-produk.php?kode='.$pecah3["kode_produk"].'>READMORE</a>';?></p>
             </div>
           </div>
         </div>
