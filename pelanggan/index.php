@@ -1,4 +1,8 @@
-<?php include 'komponen/landing_head.php';?>
+<?php
+include 'komponen/landing_head.php';
+include '../koneksi.php';
+include 'komponen/refresh.php';
+?>
   <body>
 
     <!-- ===============================================-->
@@ -60,20 +64,24 @@
       <!-- ============================================-->
       <!-- <section> begin ============================-->
       <section>
+        <?php
+        $ambil=$koneksi->query("SELECT * FROM produk WHERE harga <= 200000 ORDER BY harga DESC");
+        $pecah=$ambil->fetch_assoc();
+         ?>
 
         <div class="container">
           <div class="row justify-content-center text-center">
             <div class="col-lg-8 col-xl-7 col-xxl-6">
-              <h1 class="fs-2 fs-sm-4 fs-md-5">WebApp theme of the future</h1>
+              <h1 class="fs-2 fs-sm-4 fs-md-5"></h1>
               <p class="lead">Built on top of Bootstrap 5, super modular Falcon provides you gorgeous design &amp; streamlined UX for your WebApp.</p>
             </div>
           </div>
           <div class="row flex-center mt-8">
-            <div class="col-md col-lg-5 col-xl-4 ps-lg-6"><img class="img-fluid px-6 px-md-0" src="../assets/img/icons/spot-illustrations/50.png" alt="" /></div>
+            <div class="col-md col-lg-5 col-xl-4 ps-lg-6"><img class="img-fluid px-6 px-md-0 rounded-circle" src="../fotoproduk/<?=$pecah['foto']?>" alt="" /></div>
             <div class="col-md col-lg-5 col-xl-4 mt-4 mt-md-0">
-              <h5 class="text-danger"><span class="far fa-lightbulb me-2"></span>PLAN</h5>
-              <h3>Blueprint &amp; design </h3>
-              <p>With Falcon as your guide, now you have a fine-tuned state of the earth tool to make your wireframe a reality.</p>
+              <h5 class="text-danger"><span class="far fa-lightbulb me-2"></span>Produk Paling Murah</h5>
+              <h3><?=$pecah['nama_produk']?></h3>
+              <p style="white-space: pre-line;"><?=substr($pecah["deskripsi"],0,200) . ' <br><br><a href=detail-produk.php?kode='.$pecah["kode_produk"].'>READMORE</a>';?></p>
             </div>
           </div>
           <div class="row flex-center mt-7">
