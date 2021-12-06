@@ -1,4 +1,6 @@
 <?php
+error_reporting(0);
+ini_set('display_errors', 0);
 $judul = 'App | Detail Produk';
 include 'komponen/header.php';
 include '../koneksi.php';
@@ -83,6 +85,13 @@ if ($rating == 5 ) {
   <span class="fa fa-star text-warning"></span>
   <span class="fa fa-star text-warning"></span>'; 
 }
+if ($rating == 0 ) {
+  $tampil_rating = '<span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span>'; 
+}
 
 
 if (empty($jumlahterjual) OR !isset($jumlahterjual)) {
@@ -125,7 +134,7 @@ else {
                 </div>
                 <div class="col-lg-6">
                   <h5 class="text-uppercase"><?=$pecah['nama_produk']?></h5><a class="fs--1 mb-2 d-block" href="#!"><?=$pecah['katagori']?></a>
-                  <div class="fs--2 mb-3 d-inline-block text-decoration-none"><?=$tampil_rating?><span class="ms-1 text-600">(<?=round($rating,1)?>)</span>
+                  <div class="fs--2 mb-3 d-inline-block text-decoration-none"><?=$tampil_rating?><span class="ms-1 text-600">(<?=round($rating,1)?>) • (<?=$terjual?> Ulasan)</span>
                   </div>
                   <p class="fs--1" style="white-space: pre-line;"><?=$pecah['deskripsi']?></p>
                   <h4 class="d-flex align-items-center"><span class="text-warning me-2">Rp.<?=number_format($pecah['harga'])?></span><span class="me-1 fs--1 text-500">

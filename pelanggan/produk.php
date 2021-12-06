@@ -144,6 +144,13 @@ session_start();
                   <span class="fa fa-star text-warning"></span>
                   <span class="fa fa-star text-warning"></span>'; 
                 }
+                if ($rating == 0 ) {
+                  $tampil_rating = '<span class="fa fa-star"></span>
+                  <span class="fa fa-star"></span>
+                  <span class="fa fa-star"></span>
+                  <span class="fa fa-star"></span>
+                  <span class="fa fa-star"></span>'; 
+                }
                   ?>
                 <div class="mb-4 col-md-6 col-lg-4">
                   <div class="border shadow rounded-1 h-100 d-flex flex-column justify-content-between pb-3">
@@ -158,6 +165,7 @@ session_start();
                         </h5>
                         <p class="fs--1 mb-1">Stock: <strong class="text-success">Available</strong>
                         <p class="fs--1 mb-1">Jumlah Stok: <strong><?=$d['stok']?></strong></p>
+                        <p class="fs--1 mb-1">Produk Terjual: <strong><?=$jumlahterjual?></strong></p>
                         </p>
                       </div>
                     </div>
