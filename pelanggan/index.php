@@ -2,6 +2,7 @@
 include 'komponen/landing_head.php';
 include '../koneksi.php';
 include 'komponen/refresh.php';
+$jumlah = "2";
 ?>
   <body>
 
@@ -124,38 +125,26 @@ include 'komponen/refresh.php';
         <div class="container">
           <div class="row">
             <div class="col">
-              <h1 class="fs-2 fs-sm-4 fs-md-5">Here's what's in it for you</h1>
-              <p class="lead">Things you will get right out of the box with Falcon.</p>
+              <h1 class="fs-2 fs-sm-4 fs-md-5">List Produk Terbaru</h1>
+              <p class="lead">Nikmati produk kami yang terbaru degan harga yang terjangkau.</p>
             </div>
           </div>
           <div class="row mt-6">
-            <div class="col-lg-4">
+             <?php 
+                $batas = 6;
+                $data_produk = mysqli_query($koneksi,"SELECT * FROM produk ORDER BY nama_produk ASC LIMIT $batas ");
+                while($d = mysqli_fetch_array($data_produk)){
+            ?>
+            <div class="col-lg-4 mb-5">
               <div class="card card-span h-100">
-                <div class="card-span-img"><span class="fab fa-sass fs-4 text-info"></span></div>
+                <div class="card-span-img border shadow "><div class="avatar"><img class="rounded-circle" src="../fotoproduk/<?=$d['foto']?>"></div></div>
                 <div class="card-body pt-6 pb-4">
-                  <h5 class="mb-2">Bootstrap 5.x</h5>
-                  <p>Build your webapp with the world's most popular front-end component library along with Falcon's 32 sets of carefully designed elements.</p>
+                  <h5 class="mb-2 text-uppercase"><small><?=implode(" ", array_slice(explode(" ", $d['nama_produk']), 0, $jumlah));?></small></h5>
+                  <p><?=substr($d["deskripsi"],0,100) . ' <br><br><a href=detail-produk.php?kode='.$d["kode_produk"].'>READMORE</a>';?></p>
                 </div>
               </div>
             </div>
-            <div class="col-lg-4 mt-6 mt-lg-0">
-              <div class="card card-span h-100">
-                <div class="card-span-img"><span class="fab fa-node-js fs-5 text-success"></span></div>
-                <div class="card-body pt-6 pb-4">
-                  <h5 class="mb-2">SCSS &amp; Javascript files</h5>
-                  <p>With your purchased copy of Falcon, you will get all the uncompressed & documented SCSS and Javascript source code files.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 mt-6 mt-lg-0">
-              <div class="card card-span h-100">
-                <div class="card-span-img"><span class="fab fa-gulp fs-6 text-danger"></span></div>
-                <div class="card-body pt-6 pb-4">
-                  <h5 class="mb-2">Gulp based workflow</h5>
-                  <p>All the painful or time-consuming tasks in your development workflow such as compiling the SCSS or transpiring the JS are automated.</p>
-                </div>
-              </div>
-            </div>
+          <?php } ?>
           </div>
         </div>
         <!-- end of .container-->
@@ -176,24 +165,55 @@ include 'komponen/refresh.php';
             <div class="col-lg-9 col-xl-8">
               <div class="swiper-container theme-slider" data-swiper='{"autoplay":true,"spaceBetween":5,"loop":true,"loopedSlides":5,"slideToClickedSlide":true}'>
                 <div class="swiper-wrapper">
+                  <?php 
+                  $conn= $koneksi->query("SELECT * FROM detail_beli INNER JOIN beli ON detail_beli.kode_transaksi=beli.kode_transaksi");
+                  while($d2=mysqli_fetch_assoc($conn)){
+                    $rating2 = $d2['rating'];
+                    if ($rating2 == 1 ) {
+                      $tampil_rating2 = '<span class="fa fa-star text-warning"></span>
+                      <span class="fa fa-star"></span>
+                      <span class="fa fa-star"></span>
+                      <span class="fa fa-star"></span>
+                      <span class="fa fa-star"></span>';
+                    }
+                    elseif ($rating2 == 2 ) {
+                     $tampil_rating2 = '<span class="fa fa-star text-warning"></span>
+                     <span class="fa fa-star text-warning"></span>
+                     <span class="fa fa-star"></span>
+                     <span class="fa fa-star"></span>
+                     <span class="fa fa-star"></span>'; 
+                   }
+                   elseif ($rating2 == 3 ) {
+                    $tampil_rating2 = '<span class="fa fa-star text-warning"></span>
+                    <span class="fa fa-star text-warning"></span>
+                    <span class="fa fa-star text-warning"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>'; 
+                  }
+                  elseif ($rating2 == 4 ) {
+                    $tampil_rating2 = '<span class="fa fa-star text-warning"></span>
+                    <span class="fa fa-star text-warning"></span>
+                    <span class="fa fa-star text-warning"></span>
+                    <span class="fa fa-star text-warning"></span>
+                    <span class="fa fa-star"></span>'; 
+                  }
+                  else {
+                    $tampil_rating2 = '<span class="fa fa-star text-warning"></span>
+                    <span class="fa fa-star text-warning"></span>
+                    <span class="fa fa-star text-warning"></span>
+                    <span class="fa fa-star text-warning"></span>
+                    <span class="fa fa-star text-warning"></span>'; 
+                  }
+                  $pick_conn=$koneksi->query("SELECT * FROM produk WHERE kode_produk='$d2[kode_produk]'");
+                  $fetch=$pick_conn->fetch_assoc();
+                    ?>
                   <div class="swiper-slide">
                     <div class="px-5 px-sm-6">
-                      <p class="fs-sm-1 fs-md-2 fst-italic text-dark">Falcon is the best option if you are looking for a theme built with Bootstrap. On top of that, Falcon&apos;s creators and support staff are very brilliant and attentive to users&apos; needs.</p>
-                      <p class="fs-0 text-600">- Scott Tolinski, Web Developer</p><img class="w-auto mx-auto" src="../assets/img/logos/google.png" alt="" height="45" />
+                      <p class="fs-sm-1 fs-md-2 fst-italic text-dark"><?=$d2['komentar']?>.</p>
+                      <p class="fs-0 text-600">- <?=$d2['nama']?><br><?=$tampil_rating2?></p><div class="avatar avatar-4xl"><img class="rounded-circle  border shadow" src="../fotoproduk/<?=$fetch['foto']?>"></div>
                     </div>
                   </div>
-                  <div class="swiper-slide">
-                    <div class="px-5 px-sm-6">
-                      <p class="fs-sm-1 fs-md-2 fst-italic text-dark">We&apos;ve become fanboys! Easy to change the modular design, great dashboard UI, enterprise-class support, fast loading time. What else do you want from a Bootstrap Theme?</p>
-                      <p class="fs-0 text-600">- Jeff Escalante, Developer</p><img class="w-auto mx-auto" src="../assets/img/logos/netflix.png" alt="" height="30" />
-                    </div>
-                  </div>
-                  <div class="swiper-slide">
-                    <div class="px-5 px-sm-6">
-                      <p class="fs-sm-1 fs-md-2 fst-italic text-dark">When I first saw Falcon, I was totally blown away by the care taken in the interface. It felt like something that I&apos;d really want to use and something I could see being a true modern replacement to the current class of Bootstrap themes.</p>
-                      <p class="fs-0 text-600">- Liam Martens, Designer</p><img class="w-auto mx-auto" src="../assets/img/logos/paypal.png" alt="" height="45" />
-                    </div>
-                  </div>
+                  <?php } ?>
                 </div>
                 <div class="swiper-nav">
                   <div class="swiper-button-next swiper-button-white"></div>
