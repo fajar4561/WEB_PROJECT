@@ -2,7 +2,6 @@
 include 'komponen/landing_head.php';
 include '../koneksi.php';
 include 'komponen/refresh.php';
-$jumlah = "2";
 ?>
   <body>
 
@@ -139,7 +138,7 @@ $jumlah = "2";
               <div class="card card-span h-100">
                 <div class="card-span-img border shadow "><div class="avatar"><img class="rounded-circle" src="../fotoproduk/<?=$d['foto']?>"></div></div>
                 <div class="card-body pt-6 pb-4">
-                  <h5 class="mb-2 text-uppercase"><small><?=implode(" ", array_slice(explode(" ", $d['nama_produk']), 0, $jumlah));?></small></h5>
+                  <h5 class="mb-2 text-uppercase"><small><?=implode(" ", array_slice(explode(" ", $d['nama_produk']), 0, 2));?></small></h5>
                   <p><?=substr($d["deskripsi"],0,100) . ' <br><br><a href=detail-produk.php?kode='.$d["kode_produk"].'>READMORE</a>';?></p>
                 </div>
               </div>
@@ -210,7 +209,8 @@ $jumlah = "2";
                   <div class="swiper-slide">
                     <div class="px-5 px-sm-6">
                       <p class="fs-sm-1 fs-md-2 fst-italic text-dark"><?=$d2['komentar']?>.</p>
-                      <p class="fs-0 text-600">- <?=$d2['nama']?><br><?=$tampil_rating2?></p><div class="avatar avatar-4xl"><img class="rounded-circle  border shadow" src="../fotoproduk/<?=$fetch['foto']?>"></div>
+                      <p><a href="detail-produk?kode=<?=$d2['kode_produk']?>"><span class="badge rounded-pill bg-primary"><?=implode(" ", array_slice(explode(" ", $fetch['nama_produk']), 0, 2));?></span></a></p>
+                      <p class="fs-0 text-600">Komentar: <?=implode(" ", array_slice(explode(" ", $d2['nama']), 0, 1));?><br><?=$tampil_rating2?></p><a href="detail-produk?kode=<?=$d2['kode_produk']?>"><div class="avatar avatar-4xl"><img class="rounded-circle  border shadow" src="../fotoproduk/<?=$fetch['foto']?>"></div></a>
                     </div>
                   </div>
                   <?php } ?>
