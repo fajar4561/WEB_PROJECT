@@ -243,8 +243,8 @@ include 'komponen/refresh.php';
         <div class="container">
           <div class="row justify-content-center text-center">
             <div class="col-lg-8">
-              <p class="fs-3 fs-sm-4 text-white">Join our community of 20,000+ developers and content creators on their mission to build better sites and apps.</p>
-              <button class="btn btn-outline-light border-2 rounded-pill btn-lg mt-4 fs-0 py-2" type="button">Start your webapp</button>
+              <p class="fs-3 fs-sm-4 text-white">Shey Sport Melayani anda dengan sepenuh hati, Kritik dan saran demi majunya toko kami. Selamat Berbelanja.</p>
+              <a class="btn btn-outline-light border-2 rounded-pill btn-lg mt-4 fs-0 py-2" href="produk">Produk Kami</a>
             </div>
           </div>
         </div>
@@ -266,7 +266,7 @@ include 'komponen/refresh.php';
           <div class="row">
             <div class="col-lg-4">
               <h5 class="text-uppercase text-white opacity-85 mb-3">Our Mission</h5>
-              <p class="text-600">Falcon enables front end developers to build custom streamlined user interfaces in a matter of hours, while it gives backend developers all the UI elements they need to develop their web app.And it's rich design can be easily integrated with backends whether your app is based on ruby on rails, laravel, express or any other server side system.</p>
+              <p class="text-600">Melayani dan menyajikan produk yang terjangkau dengan mutu kualitas terbaik sehingga semua kalangan dapat menikmati peralatan olahraga. Selain itu, demi meningkatkan minat olahraga bagi semua orang.</p>
               <div class="icon-group mt-4"><a class="icon-item bg-white text-facebook" href="#!"><span class="fab fa-facebook-f"></span></a><a class="icon-item bg-white text-twitter" href="#!"><span class="fab fa-twitter"></span></a><a class="icon-item bg-white text-google-plus" href="#!"><span class="fab fa-google-plus-g"></span></a><a class="icon-item bg-white text-linkedin" href="#!"><span class="fab fa-linkedin-in"></span></a><a class="icon-item bg-white" href="#!"><span class="fab fa-medium-m"></span></a></div>
             </div>
             <div class="col ps-lg-6 ps-xl-8">
