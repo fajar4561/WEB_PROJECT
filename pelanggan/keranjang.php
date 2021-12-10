@@ -114,12 +114,7 @@ echo "<script>location='produk';</script>";
               </div>
             </div>
             <div class="card-footer bg-light d-flex justify-content-end">
-              <form class="me-3">
-                <div class="input-group input-group-sm">
-                  <input class="form-control" type="text" placeholder="Promocode" />
-                  <button class="btn btn-outline-secondary border-300 btn-sm" type="submit">Apply</button>
-                </div>
-              </form><a class="btn btn-sm btn-primary" href="checkout">Checkout</a>
+              <a class="btn btn-sm btn-primary" href="checkout">Checkout</a>
             </div>
           </div>
           <?php include 'komponen/bawah.php';?>
