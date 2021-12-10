@@ -9,7 +9,7 @@
               <li class="nav-item">
                 <div class="search-box" data-list='{"valueNames":["title"]}'>
                   <form class="position-relative" data-bs-toggle="search" data-bs-display="static">
-                    <input class="form-control search-input fuzzy-search" type="search" placeholder="Search..." aria-label="Search" />
+                    <input class="form-control search-input fuzzy-search" type="search" placeholder="Pencarian Produk...." aria-label="Pencarian Produk" />
                     <span class="fas fa-search search-box-icon"></span>
 
                   </form>
@@ -34,79 +34,39 @@
                       </a>
 
                       <hr class="bg-200 dark__bg-900" />
-                      <h6 class="dropdown-header fw-medium text-uppercase px-card fs--2 pt-0 pb-2">Suggested Filter</h6><a class="dropdown-item px-card py-1 fs-0" href="../app/e-commerce/customers.html">
-                        <div class="d-flex align-items-center"><span class="badge fw-medium text-decoration-none me-2 badge-soft-warning">customers:</span>
-                          <div class="flex-1 fs--1 title">All customers list</div>
+                      <h6 class="dropdown-header fw-medium text-uppercase px-card fs--2 pt-0 pb-2">Katagori Produk</h6>
+                      <a class="dropdown-item px-card py-1 fs-0" href="../app/e-commerce/customers.html">
+                        <div class="d-flex align-items-center"><span class="badge fw-medium text-decoration-none me-2 badge-soft-warning">Termurah:</span>
+                          <div class="flex-1 fs--1 title">Produk dengan harga termurah</div>
                         </div>
                       </a>
                       <a class="dropdown-item px-card py-1 fs-0" href="../app/events/event-detail.html">
-                        <div class="d-flex align-items-center"><span class="badge fw-medium text-decoration-none me-2 badge-soft-success">events:</span>
-                          <div class="flex-1 fs--1 title">Latest events in current month</div>
+                        <div class="d-flex align-items-center"><span class="badge fw-medium text-decoration-none me-2 badge-soft-success">Terpopuler:</span>
+                          <div class="flex-1 fs--1 title">Produk Paling diminati</div>
                         </div>
                       </a>
                       <a class="dropdown-item px-card py-1 fs-0" href="../app/e-commerce/product/product-grid.html">
-                        <div class="d-flex align-items-center"><span class="badge fw-medium text-decoration-none me-2 badge-soft-info">products:</span>
-                          <div class="flex-1 fs--1 title">Most popular products</div>
+                        <div class="d-flex align-items-center"><span class="badge fw-medium text-decoration-none me-2 badge-soft-info">Terlaku:</span>
+                          <div class="flex-1 fs--1 title">Produk paling laris</div>
                         </div>
                       </a>
 
                       <hr class="bg-200 dark__bg-900" />
-                      <h6 class="dropdown-header fw-medium text-uppercase px-card fs--2 pt-0 pb-2">Files</h6><a class="dropdown-item px-card py-2" href="#!">
+                      <h6 class="dropdown-header fw-medium text-uppercase px-card fs--2 pt-0 pb-2">Produk Tersedia</h6>
+                      <?php
+                      $conn_cari= $koneksi->query("SELECT * FROM produk ORDER BY nama_produk ASC");
+                      while($data_cari=mysqli_fetch_assoc($conn_cari)){
+                       ?>
+                      <a class="dropdown-item px-card py-2" href="detail-produk?kode=<?=$data_cari['kode_produk']?>">
                         <div class="d-flex align-items-center">
-                          <div class="file-thumbnail me-2"><img class="border h-100 w-100 fit-cover rounded-3" src="../assets/img/products/3-thumb.png" alt="" /></div>
+                          <div class="file-thumbnail me-2"><img class="border h-100 w-100 fit-cover rounded-3" src="../fotoproduk/<?=$data_cari['foto']?>" alt="" /></div>
                           <div class="flex-1">
-                            <h6 class="mb-0 title">iPhone</h6>
-                            <p class="fs--2 mb-0 d-flex"><span class="fw-semi-bold">Antony</span><span class="fw-medium text-600 ms-2">27 Sep at 10:30 AM</span></p>
+                            <h6 class="mb-0 title"><?=$data_cari['nama_produk']?></h6>
+                            <p class="fs--2 mb-0 d-flex"><span class="fw-semi-bold">Harga:</span><span class="fw-medium text-600 ms-2">Rp.<?=number_format($data_cari['harga'])?></span></p>
                           </div>
                         </div>
                       </a>
-                      <a class="dropdown-item px-card py-2" href="#!">
-                        <div class="d-flex align-items-center">
-                          <div class="file-thumbnail me-2"><img class="img-fluid" src="../assets/img/icons/zip.png" alt="" /></div>
-                          <div class="flex-1">
-                            <h6 class="mb-0 title">Falcon v1.8.2</h6>
-                            <p class="fs--2 mb-0 d-flex"><span class="fw-semi-bold">John</span><span class="fw-medium text-600 ms-2">30 Sep at 12:30 PM</span></p>
-                          </div>
-                        </div>
-                      </a>
-
-                      <hr class="bg-200 dark__bg-900" />
-                      <h6 class="dropdown-header fw-medium text-uppercase px-card fs--2 pt-0 pb-2">Members</h6><a class="dropdown-item px-card py-2" href="../pages/user/profile.html">
-                        <div class="d-flex align-items-center">
-                          <div class="avatar avatar-l status-online me-2">
-                            <img class="rounded-circle" src="../assets/img/team/1.jpg" alt="" />
-
-                          </div>
-                          <div class="flex-1">
-                            <h6 class="mb-0 title">Anna Karinina</h6>
-                            <p class="fs--2 mb-0 d-flex">Technext Limited</p>
-                          </div>
-                        </div>
-                      </a>
-                      <a class="dropdown-item px-card py-2" href="../pages/user/profile.html">
-                        <div class="d-flex align-items-center">
-                          <div class="avatar avatar-l me-2">
-                            <img class="rounded-circle" src="../assets/img/team/2.jpg" alt="" />
-
-                          </div>
-                          <div class="flex-1">
-                            <h6 class="mb-0 title">Antony Hopkins</h6>
-                            <p class="fs--2 mb-0 d-flex">Brain Trust</p>
-                          </div>
-                        </div>
-                      </a>
-                      <a class="dropdown-item px-card py-2" href="../pages/user/profile.html">
-                        <div class="d-flex align-items-center">
-                          <div class="avatar avatar-l me-2">
-                            <img class="rounded-circle" src="../assets/img/team/3.jpg" alt="" />
-
-                          </div>
-                          <div class="flex-1">
-                            <h6 class="mb-0 title">Emma Watson</h6>
-                            <p class="fs--2 mb-0 d-flex">Google</p>
-                          </div>
-                        </div>
-                      </a>
+                    <?php } ?>
 
                     </div>
                     <div class="text-center mt-n3">
