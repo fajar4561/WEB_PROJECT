@@ -8,6 +8,7 @@ $kode = $_GET['kode'];
 $ambil=$koneksi->query("SELECT * FROM produk WHERE kode_produk='$kode'");
 $pecah=$ambil->fetch_assoc();
 
+$diskon = $pecah['harga']*2;
 
 // mencari total barang terjual
 $pemasukan=mysqli_query($koneksi,"SELECT * FROM detail_beli WHERE kode_produk='$kode'");
@@ -138,7 +139,7 @@ else {
                   </div>
                   <p class="fs--1" style="white-space: pre-line;"><?=$pecah['deskripsi']?></p>
                   <h4 class="d-flex align-items-center"><span class="text-warning me-2">Rp.<?=number_format($pecah['harga'])?></span><span class="me-1 fs--1 text-500">
-                      <del class="me-1">$2400</del><strong>-50%</strong></span></h4>
+                      <del class="me-1">Rp.<?=number_format($diskon)?></del><strong>-50%</strong></span></h4>
                   <p class="fs--1 mb-1"> <span>Produk Terjual: </span><strong> <?=$terjual?></strong></p>
                   <p class="fs--1">Stock: <strong class="text-success">Available</strong></p>
                   <p class="fs--1 mb-3">Tags: <a class="ms-2" href="#!">Sepatu,</a><a class="ms-1" href="#!"><?=$pecah['katagori']?>,</a><a class="ms-1" href="#!">Olahraga</a></p>
@@ -154,7 +155,7 @@ else {
                         </div>
                       </div>
                       <div class="col-auto px-2 px-md-3"><button class="btn btn-sm btn-primary" type="submit"><span class="fas fa-cart-plus me-sm-2"></span><span class="d-none d-sm-inline-block">Beli</span></button></div>
-                      <div class="col-auto px-0"><a class="btn btn-sm btn-outline-danger border-300" href="#!" data-bs-toggle="tooltip" data-bs-placement="top" title="Add to Wish List"><span class="far fa-heart me-1"></span>282</a></div>
+                      <div class="col-auto px-0"><a class="btn btn-sm btn-outline-danger border-300" href="#!" data-bs-toggle="tooltip" data-bs-placement="top" title="Add to Wish List"><span class="far fa-heart me-1"></span><?=$terjual?></a></div>
                     </div>
                   </form>
                 </div>
