@@ -31,7 +31,26 @@ include '../koneksi.php';
                       <div class="bg-holder d-none d-md-block bg-card z-index-1" style="background-image:url(../assets/img/illustrations/ecommerce-bg.png);background-size:230px;background-position:right bottom;z-index:-1;">
                       </div>
                       <!--/.bg-holder-->
+                       <?php
+                       // Mencari data produk Terjual
+                            $conn_terjual =mysqli_query($koneksi,"SELECT * FROM detail_beli WHERE tgl_beli= CURDATE() ");
+                            while ($dta_jual=mysqli_fetch_array($conn_terjual))
+                            {
+                              $array_terjual[] = $dta_jual['jumlah'];
+                              $array_pendapatan[] = $dta_jual['total'];
+                            }
+                            $total_produk_terjual = array_sum($array_terjual);
+                            $total_pendapatan = array_sum($array_pendapatan);
 
+                            if (empty($total_produk_terjual) OR !isset($total_produk_terjual)) {
+                              $jml_total_produk_terjual = 0;
+                              $jml_total_pendapatan = 0;
+                            }
+                            else {
+                              $jml_total_pendapatan = $total_pendapatan;
+                              $jml_total_produk_terjual = $total_produk_terjual;
+                            }
+                        ?>
                       <div class="position-relative z-index-2">
                         <div>
                           <h3 class="text-primary mb-1">Good Afternoon, Jonathan!</h3>
@@ -39,12 +58,12 @@ include '../koneksi.php';
                         </div>
                         <div class="d-flex py-3">
                           <div class="pe-3">
-                            <p class="text-600 fs--1 fw-medium">Today's visit </p>
-                            <h4 class="text-800 mb-0">14,209</h4>
+                            <p class="text-600 fs--1 fw-medium">Produk Terjual Hari ini </p>
+                            <h4 class="text-800 mb-0"><?=$jml_total_produk_terjual?> <small><span class="badge rounded-pill badge-soft-primary">Produk</span></small></h4>
                           </div>
                           <div class="ps-3">
-                            <p class="text-600 fs--1">Today’s total sales </p>
-                            <h4 class="text-800 mb-0">$21,349.29 </h4>
+                            <p class="text-600 fs--1">Pendapatan Hari ini </p>
+                            <h4 class="text-800 mb-0">Rp.<?=number_format($jml_total_pendapatan)?> </h4>
                           </div>
                         </div>
                       </div>
@@ -983,9 +1002,8 @@ include '../koneksi.php';
         </div>
       </div>
     </main>
-    <!-- ===============================================-->
-    <!--    End of Main Content-->
-    <!-- ===============================================--
+
+
 
 
   <?php
