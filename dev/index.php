@@ -23,6 +23,49 @@ include '../koneksi.php';
         <div class="content">
           <?php include '../komponen/topbar.php';?>
           <div class="row g-3 mb-3">
+            <div class="col-sm-12 col-md-12">
+              <div class="card mb-3">
+                <div class="card-header position-relative min-vh-25 mb-7">
+                  <div class="bg-holder rounded-3 rounded-bottom-0" style="background-image:url(../assets/img/generic/4.jpg);">
+                  </div>
+                  <!--/.bg-holder-->
+
+                  <div class="avatar avatar-5xl avatar-profile"><img class="rounded-circle img-thumbnail shadow-sm" src="../assets/img/team/2.jpg" width="200" alt="" /></div>
+                </div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-lg-8">
+                      <h4 class="mb-1"> Anthony Hopkins<span data-bs-toggle="tooltip" data-bs-placement="right" title="Verified"><small class="fa fa-check-circle text-primary" data-fa-transform="shrink-4 down-2"></small></span>
+                      </h4>
+                      <h5 class="fs-0 fw-normal">Senior Software Engineer at Technext Limited</h5>
+                      <p class="text-500">New York, USA</p>
+                      <button class="btn btn-falcon-primary btn-sm px-3" type="button">Following</button>
+                      <button class="btn btn-falcon-default btn-sm px-3 ms-2" type="button">Message</button>
+                      <div class="border-dashed-bottom my-4 d-lg-none"></div>
+                    </div>
+                    <div class="col ps-2 ps-lg-3"><a class="d-flex align-items-center mb-2" href="#"><span class="fas fa-user-circle fs-3 me-2 text-700" data-fa-transform="grow-2"></span>
+                      <div class="flex-1">
+                        <h6 class="mb-0">See followers (330)</h6>
+                      </div>
+                    </a><a class="d-flex align-items-center mb-2" href="#"><img class="align-self-center me-2" src="../assets/img/logos/g.png" alt="Generic placeholder image" width="30" />
+                      <div class="flex-1">
+                        <h6 class="mb-0">Google</h6>
+                      </div>
+                    </a><a class="d-flex align-items-center mb-2" href="#"><img class="align-self-center me-2" src="../assets/img/logos/apple.png" alt="Generic placeholder image" width="30" />
+                      <div class="flex-1">
+                        <h6 class="mb-0">Apple</h6>
+                      </div>
+                    </a><a class="d-flex align-items-center mb-2" href="#"><img class="align-self-center me-2" src="../assets/img/logos/hp.png" alt="Generic placeholder image" width="30" />
+                      <div class="flex-1">
+                        <h6 class="mb-0">Hewlett Packard</h6>
+                      </div>
+                    </a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row g-3 mb-3">
             <div class="col-xxl-6 col-xl-12">
               <div class="row g-3">
                 <div class="col-12">
@@ -80,6 +123,13 @@ include '../koneksi.php';
                         $conn_2=mysqli_query($koneksi,"SELECT * FROM beli");
                         $jml_transaksi = mysqli_num_rows($conn_2);
 
+                        $conn_terjual2 =mysqli_query($koneksi,"SELECT * FROM detail_beli ");
+                        while ($dta_jual2=mysqli_fetch_array($conn_terjual2))
+                        {                          
+                          $array_pendapatan2[] = $dta_jual2['total'];
+                        }
+                        $total_pendapatan2 = array_sum($array_pendapatan2);
+
                      ?>
                     <div class="card-body p-0">
                       <ul class="mb-0 list-unstyled">
@@ -108,6 +158,44 @@ include '../koneksi.php';
                       </ul>
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row g-3 mb-3">
+            <div class="col-sm-6 col-md-4">
+              <div class="card overflow-hidden" style="min-width: 12rem">
+                <div class="bg-holder bg-card" style="background-image:url(../assets/img/icons/spot-illustrations/corner-1.png);">
+                </div>
+                <!--/.bg-holder-->
+
+                <div class="card-body position-relative">
+                  <h6>Total Pembeli</h6>
+                  <div class="display-4 fs-4 mb-2 fw-normal font-sans-serif text-warning" data-countup='{"endValue":<?=$jml_transaksi?>,"suffix":" Orang"}'>0</div><a class="fw-semi-bold fs--1 text-nowrap" href="#!">See all<span class="fas fa-angle-right ms-1" data-fa-transform="down-1"></span></a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+              <div class="card overflow-hidden" style="min-width: 12rem">
+                <div class="bg-holder bg-card" style="background-image:url(../assets/img/icons/spot-illustrations/corner-2.png);">
+                </div>
+                <!--/.bg-holder-->
+
+                <div class="card-body position-relative">
+                  <h6>Total Pendapatan</h6>
+                  <div class="display-4 fs-4 mb-2 fw-normal font-sans-serif text-info" data-countup='{"endValue":<?=$total_pendapatan2?>,"prefix":"Rp."}'>0</div><a class="fw-semi-bold fs--1 text-nowrap" href="#!">All orders<span class="fas fa-angle-right ms-1" data-fa-transform="down-1"></span></a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card overflow-hidden" style="min-width: 12rem">
+                <div class="bg-holder bg-card" style="background-image:url(../assets/img/icons/spot-illustrations/corner-3.png);">
+                </div>
+                <!--/.bg-holder-->
+
+                <div class="card-body position-relative">
+                  <h6>Total Stok Produk</h6>
+                  <div class="display-4 fs-4 mb-2 fw-normal font-sans-serif" data-countup='{"endValue":<?=$jml_stok_produk?>,"suffix":" Barang"}'>0</div><a class="fw-semi-bold fs--1 text-nowrap" href="#!">Statistics<span class="fas fa-angle-right ms-1" data-fa-transform="down-1"></span></a>
                 </div>
               </div>
             </div>
