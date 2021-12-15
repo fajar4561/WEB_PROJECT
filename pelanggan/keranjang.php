@@ -7,7 +7,7 @@ session_start();
 {
 
 echo "<script>alert('keranjang kosong!!! silahkan lakukan pemesanan terlebih dahulu');</script>";
-echo "<script>location='produk';</script>";
+echo "<script>location='produk-list';</script>";
 
 }
 ?>

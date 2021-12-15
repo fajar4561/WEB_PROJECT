@@ -248,7 +248,7 @@ include '../koneksi.php';
                       </thead>
                       <tbody class="list" id="table-purchase-body">
                         <?php
-                        $conn= $koneksi->query("SELECT * FROM beli ORDER BY tgl_beli ASC");
+                        $conn= $koneksi->query("SELECT * FROM beli ORDER BY tgl_beli DESC");
                         $no =1;
                         while($data=mysqli_fetch_assoc($conn)){
                          ?>
