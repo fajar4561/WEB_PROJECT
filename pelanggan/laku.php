@@ -3,7 +3,6 @@ $judul = 'App | Produk Paling Laku';
 include 'komponen/header.php';
 include '../koneksi.php';
 include 'komponen/refresh.php';
-session_start();
 ?>
   <body>
 

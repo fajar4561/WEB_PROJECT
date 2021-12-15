@@ -2,7 +2,6 @@
 $judul = 'App | Keranjang';
 include 'komponen/header.php';
 include '../koneksi.php';
-session_start();
  if (empty($_SESSION["keranjang"]) OR !isset($_SESSION["keranjang"]))
 {
 
