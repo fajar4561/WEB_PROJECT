@@ -7,17 +7,17 @@
         <button class="btn-close btn-close-white z-index-1 mt-0" type="button" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body scrollbar-overlay px-card" id="themeController">
-        <h5 class="fs-0">Color Scheme</h5>
-        <p class="fs--1">Choose the perfect color mode for your app.</p>
+        <h5 class="fs-0">Warna Thema</h5>
+        <p class="fs--1">Silahkan Pilih Warna Thema.</p>
         <div class="btn-group d-block w-100 btn-group-navbar-style">
           <div class="row gx-2">
             <div class="col-6">
               <input class="btn-check" id="themeSwitcherLight" name="theme-color" type="radio" value="light" data-theme-control="theme" />
-              <label class="btn d-inline-block btn-navbar-style fs--1" for="themeSwitcherLight"> <span class="hover-overlay mb-2 rounded d-block"><img class="img-fluid img-prototype mb-0" src="../assets/img/generic/falcon-mode-default.jpg" alt=""/></span><span class="label-text">Light</span></label>
+              <label class="btn d-inline-block btn-navbar-style fs--1" for="themeSwitcherLight"> <span class="hover-overlay mb-2 rounded d-block"><img class="img-fluid img-prototype mb-0" src="../assets/img/generic/falcon-mode-default.jpg" alt=""/></span><span class="label-text">Terang</span></label>
             </div>
             <div class="col-6">
               <input class="btn-check" id="themeSwitcherDark" name="theme-color" type="radio" value="dark" data-theme-control="theme" />
-              <label class="btn d-inline-block btn-navbar-style fs--1" for="themeSwitcherDark"> <span class="hover-overlay mb-2 rounded d-block"><img class="img-fluid img-prototype mb-0" src="../assets/img/generic/falcon-mode-dark.jpg" alt=""/></span><span class="label-text"> Dark</span></label>
+              <label class="btn d-inline-block btn-navbar-style fs--1" for="themeSwitcherDark"> <span class="hover-overlay mb-2 rounded d-block"><img class="img-fluid img-prototype mb-0" src="../assets/img/generic/falcon-mode-dark.jpg" alt=""/></span><span class="label-text"> Gelap</span></label>
             </div>
           </div>
         </div>
@@ -43,27 +43,6 @@
           </div>
           <div class="form-check form-switch">
             <input class="form-check-input ms-0" id="mode-fluid" type="checkbox" data-theme-control="isFluid" />
-          </div>
-        </div>
-        <hr />
-        <div class="d-flex align-items-start"><img class="me-2" src="../assets/img/icons/paragraph.svg" width="20" alt="" />
-          <div class="flex-1">
-            <h5 class="fs-0 d-flex align-items-center">Navigation Position </h5>
-            <p class="fs--1 mb-2">Select a suitable navigation system for your web application </p>
-            <div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" id="option-navbar-vertical" type="radio" name="navbar" value="vertical" data-page-url="../modules/components/navs-and-tabs/vertical-navbar.html" data-theme-control="navbarPosition" />
-                <label class="form-check-label" for="option-navbar-vertical">Vertical</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" id="option-navbar-top" type="radio" name="navbar" value="top" data-page-url="../modules/components/navs-and-tabs/top-navbar.html" data-theme-control="navbarPosition" />
-                <label class="form-check-label" for="option-navbar-top">Top</label>
-              </div>
-              <div class="form-check form-check-inline me-0">
-                <input class="form-check-input" id="option-navbar-combo" type="radio" name="navbar" value="combo" data-page-url="../modules/components/navs-and-tabs/combo-navbar.html" data-theme-control="navbarPosition" />
-                <label class="form-check-label" for="option-navbar-combo">Combo</label>
-              </div>
-            </div>
           </div>
         </div>
         <hr />

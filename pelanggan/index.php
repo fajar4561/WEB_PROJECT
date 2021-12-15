@@ -2,6 +2,8 @@
 include 'komponen/landing_head.php';
 include '../koneksi.php';
 include 'komponen/refresh.php';
+session_start();
+session_destroy();
 ?>
   <body>
 

@@ -26,15 +26,15 @@
                           <h5 class="mb-0">Log in</h5>
                         </div>
                         <div class="col-auto">
-                          <p class="fs--1 text-600 mb-0">or <a href="../pages/authentication/simple/register.html">Create an account</a></p>
+                          <p class="fs--1 text-600 mb-0">or <a href="#!">Create an account</a></p>
                         </div>
                       </div>
-                      <form>
+                      <form method="post" action="../aksi/ceklogin">
                         <div class="mb-3">
-                          <input class="form-control" type="email" placeholder="Email address" />
+                          <input class="form-control" type="text" name="username" placeholder="Username" />
                         </div>
                         <div class="mb-3">
-                          <input class="form-control" type="password" placeholder="Password" />
+                          <input class="form-control" type="password" name="password" placeholder="Password" />
                         </div>
                         <div class="row flex-between-center">
                           <div class="col-auto">
@@ -43,7 +43,7 @@
                               <label class="form-check-label mb-0" for="modal-checkbox">Remember me</label>
                             </div>
                           </div>
-                          <div class="col-auto"><a class="fs--1" href="../pages/authentication/simple/forgot-password.html">Forgot Password?</a></div>
+                          <div class="col-auto"><a class="fs--1" href="#!">Forgot Password?</a></div>
                         </div>
                         <div class="mb-3">
                           <button class="btn btn-primary d-block w-100 mt-3" type="submit" name="submit">Log in</button>

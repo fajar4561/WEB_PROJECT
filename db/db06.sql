@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 06 Des 2021 pada 18.33
+-- Generation Time: 15 Des 2021 pada 10.45
 -- Versi Server: 10.1.25-MariaDB
 -- PHP Version: 5.6.31
 
@@ -50,7 +50,9 @@ INSERT INTO `beli` (`id`, `kode_transaksi`, `tgl_beli`, `nama`, `telpon`, `alama
 (9, 'A05122021003', '2021-12-05', 'Muhammad Nur Fatoni', '085667889223', 'Weleri Jawa Tengah', 4, 'Produk sangat bagus dan Nyaman Dipakai', 110000),
 (10, 'A05122021004', '2021-12-04', 'Andra Kusuma', '0851221334556', 'Gringsing', 3, 'Produk Ada Yang rusak. Mohon segera di chek kembali', 250000),
 (11, 'A05122021005', '2021-12-03', 'Nabiel Hisbullah', '081998776334', 'Desa Rowosari', 3, 'Ukuran Sepatu tidak sesuai', 250000),
-(12, 'A05122021006', '2021-12-06', 'Olikhin', '085443223445', 'Kendal', 4, 'Barang Sangat Bagus', 250000);
+(12, 'A05122021006', '2021-12-06', 'Olikhin', '085443223445', 'Kendal', 4, 'Barang Sangat Bagus', 250000),
+(13, 'A15122021007', '2021-12-15', 'Rohkman', '085334556789', 'Weleri', 4, 'Barang bagus.\r\nAndaikan ada banyak macam warna', 565000),
+(14, 'A15122021008', '2021-12-14', 'Mustakim', '087556889887', 'Pegandon', 3, 'Barang Tidak Sesuai Ukuran', 500000);
 
 -- --------------------------------------------------------
 
@@ -82,7 +84,11 @@ INSERT INTO `detail_beli` (`id`, `kode_transaksi`, `tgl_beli`, `kode_produk`, `n
 (11, 'A05122021003', '2021-12-05', 'BRG001', 'sepatu specs pink', 110000, 1, 110000, 4, 'Produk sangat bagus dan Nyaman Dipakai'),
 (12, 'A05122021004', '2021-12-04', 'BRG003', 'adidas Energyfalcon Running Shoes', 250000, 1, 250000, 3, 'Produk Ada Yang rusak. Mohon segera di chek kembali'),
 (13, 'A05122021005', '2021-12-03', 'BRG003', 'adidas Energyfalcon Running Shoes', 250000, 1, 250000, 3, 'Ukuran Sepatu tidak sesuai'),
-(14, 'A05122021006', '2021-12-06', 'BRG003', 'adidas Energyfalcon Running Shoes', 250000, 1, 250000, 4, 'Barang Sangat Bagus');
+(14, 'A05122021006', '2021-12-06', 'BRG003', 'adidas Energyfalcon Running Shoes', 250000, 1, 250000, 4, 'Barang Sangat Bagus'),
+(15, 'A15122021007', '2021-12-15', 'BRG001', 'sepatu specs pink', 110000, 1, 110000, 4, 'Barang bagus.\r\nAndaikan ada banyak macam warna'),
+(16, 'A15122021007', '2021-12-15', 'BRG003', 'adidas Energyfalcon Running Shoes', 250000, 1, 250000, 4, 'Barang bagus.\r\nAndaikan ada banyak macam warna'),
+(17, 'A15122021007', '2021-12-15', 'BRG004', 'ADIDAS Pro speed', 205000, 1, 205000, 4, 'Barang bagus.\r\nAndaikan ada banyak macam warna'),
+(18, 'A15122021008', '2021-12-14', 'BRG003', 'adidas Energyfalcon Running Shoes', 250000, 2, 500000, 3, 'Barang Tidak Sesuai Ukuran');
 
 -- --------------------------------------------------------
 
@@ -139,10 +145,10 @@ CREATE TABLE `produk` (
 --
 
 INSERT INTO `produk` (`id`, `kode_produk`, `nama_produk`, `katagori`, `deskripsi`, `stok`, `harga`, `foto`, `terjual`, `rating`) VALUES
-(1, 'BRG001', 'sepatu specs pink', 'Sepatu Futsal', 'SIZE : 38,39,40,41,42,43,44\r\nHARGA SUDAH TERMASUK BOX/DUS, PAKCING RAPI.', 98, 110000, '6867700_018f05ad-52ac-4266-a43b-016553465106_1280_1280.jpg', 2, 4.5),
+(1, 'BRG001', 'sepatu specs pink', 'Sepatu Futsal', 'SIZE : 38,39,40,41,42,43,44\r\nHARGA SUDAH TERMASUK BOX/DUS, PAKCING RAPI.', 97, 110000, '6867700_018f05ad-52ac-4266-a43b-016553465106_1280_1280.jpg', 3, 4.3),
 (2, 'BRG002', 'Sepatu futsal junior eskudo 500', 'Sepatu Futsal', 'Sepatu Futsal dengan bahan dan kualitas ori. \r\nNyaman dipakai', 98, 480000, 'eskudo-500-junior-futsal-boots-yellow.jpg', 2, 4.5),
-(3, 'BRG003', 'adidas Energyfalcon Running Shoes', 'Sepatu untuk lari', 'Saptu Lari Pria tersedia berbagai macam ukuran dan varian. Topangan di bagian luar membuat sepatu running ini terasa pas dan membuat Anda dapat terus melanjutkan lari', 107, 250000, 'adidas_adidas_energyfalcon_running_shoes_sepatu_lari_pria_-eh3146-_full02_i7yicrsz (2).jpg', 3, 3.3),
-(4, 'BRG004', 'ADIDAS Pro speed', 'Sepatu sepak bola', 'Berat: 750 Gram\r\nSize Charts :\r\n~ Size 34 = Panjang 23 cm\r\n~ Size 35 = Panjang 23.5 cm\r\n~ Size 36 = Panjang 24 cm\r\n~ Size 37 = Panjang 24.5 cm\r\n~ Size 38 = Panjang 25 cm\r\n\r\n*Ready size dapat berubah sewaktu-waktu karena terus dijual.\r\n\r\nCatatan:\r\n- Harga sudah lengkap dengan Box.\r\n- Harap cantumkan size dan warna di keterangan ketika melakukan order.\r\n- Jika tidak mencantumkan size maka akan kami kirim random.\r\n\r\nKemiripan warna asli dengan foto sekitar 80-95% bergantung pada resolusi layar maupun stok warna lain yg tersedia.', 100, 205000, '46670649_49f64f9a-050d-446e-8553-87806be8a924_700_700.jpg', 0, 0),
+(3, 'BRG003', 'adidas Energyfalcon Running Shoes', 'Sepatu untuk lari', 'Saptu Lari Pria tersedia berbagai macam ukuran dan varian. Topangan di bagian luar membuat sepatu running ini terasa pas dan membuat Anda dapat terus melanjutkan lari', 104, 250000, 'adidas_adidas_energyfalcon_running_shoes_sepatu_lari_pria_-eh3146-_full02_i7yicrsz (2).jpg', 6, 3.4),
+(4, 'BRG004', 'ADIDAS Pro speed', 'Sepatu sepak bola', 'Berat: 750 Gram\r\nSize Charts :\r\n~ Size 34 = Panjang 23 cm\r\n~ Size 35 = Panjang 23.5 cm\r\n~ Size 36 = Panjang 24 cm\r\n~ Size 37 = Panjang 24.5 cm\r\n~ Size 38 = Panjang 25 cm\r\n\r\n*Ready size dapat berubah sewaktu-waktu karena terus dijual.\r\n\r\nCatatan:\r\n- Harga sudah lengkap dengan Box.\r\n- Harap cantumkan size dan warna di keterangan ketika melakukan order.\r\n- Jika tidak mencantumkan size maka akan kami kirim random.\r\n\r\nKemiripan warna asli dengan foto sekitar 80-95% bergantung pada resolusi layar maupun stok warna lain yg tersedia.', 99, 205000, '46670649_49f64f9a-050d-446e-8553-87806be8a924_700_700.jpg', 1, 4),
 (5, 'BRG005', 'Sevenray 34-37 Dybala Hijau', 'Sepatu sepak bola', 'Sepatu Sepakbola Anak Sevenray Dybala Jr\r\n\r\nBahan : kulit sintetis (lembut, nyaman, dan tidak panas)\r\nOutsole : berbahan ringan lebih responsif untuk berlari dan menendang bola\r\n\r\nPanduan ukuran :\r\nUkuran 34 Panjang telapak kaki 21,5 cm\r\nUkuran 35 Panjang telapak kaki 22 cm\r\nUkuran 36 Panjang telapak kaki 22,5 cm\r\nUkuran 37 Panjang telapak kaki 23 cm\r\n\r\nBelanja langsung dari pabrik nya\r\n\"Khusus Kaki Orang Indonesia yg bisa pakai\"\r\n', 20, 100000, '16fc8cc2d2d8aa8aa3d613efb6bb112d.jpg', 0, 0);
 
 --
@@ -181,12 +187,12 @@ ALTER TABLE `produk`
 -- AUTO_INCREMENT for table `beli`
 --
 ALTER TABLE `beli`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `detail_beli`
 --
 ALTER TABLE `detail_beli`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `pegawai`
 --
