@@ -93,7 +93,7 @@ include 'komponen/refresh.php';
 
                   $rating = $jml_rating/$jmltransaksi;
                   // Tampilan Rating
-                  if ($rating == 1 ) {
+                 if ($rating == 1 ) {
                     $tampil_rating = '<span class="fa fa-star text-warning"></span>
                     <span class="fa fa-star"></span>
                     <span class="fa fa-star"></span>
@@ -139,7 +139,7 @@ include 'komponen/refresh.php';
                   <span class="fa fa-star text-warning"></span>
                   <span class="fa fa-star-half-alt text-warning star-icon"></span>
                   <span class="fa fa-star"></span>'; 
-                  $banner_atas= '<div class="badge rounded-pill bg-danger position-absolute top-0 end-0 me-2 mt-2 fs--2 z-index-2">Hot</div>';
+                  $banner_atas= '<div class="badge rounded-pill bg-danger position-absolute top-0 end-0 me-2 mt-2 fs--2 z-index-2"><img src="hot.png" class="img" width="20px"> Hot</div>';
                 }
                 if ($rating == 4 ) {
                   $tampil_rating = '<span class="fa fa-star text-warning"></span>
@@ -147,7 +147,7 @@ include 'komponen/refresh.php';
                   <span class="fa fa-star text-warning"></span>
                   <span class="fa fa-star text-warning"></span>
                   <span class="fa fa-star"></span>'; 
-                  $banner_atas= '<div class="badge rounded-pill bg-danger position-absolute top-0 end-0 me-2 mt-2 fs--2 z-index-2">Hot</div>';
+                  $banner_atas= '<div class="badge rounded-pill bg-danger position-absolute top-0 end-0 me-2 mt-2 fs--2 z-index-2"><img src="hot.png" class="img" width="20px"> Hot</div>';
                 }
                 if ($rating > 4 ) {
                   $tampil_rating = '<span class="fa fa-star text-warning"></span>
@@ -155,7 +155,7 @@ include 'komponen/refresh.php';
                   <span class="fa fa-star text-warning"></span>
                   <span class="fa fa-star text-warning"></span>
                   <span class="fa fa-star-half-alt text-warning star-icon"></span>'; 
-                  $banner_atas= '<div class="badge rounded-pill bg-danger position-absolute top-0 end-0 me-2 mt-2 fs--2 z-index-2">Hot</div>';
+                  $banner_atas= '<div class="badge rounded-pill bg-danger position-absolute top-0 end-0 me-2 mt-2 fs--2 z-index-2"><img src="hot.png" class="img" width="20px"> Hot</div>';
                 }
                 if ($rating == 5 ) {
                   $tampil_rating = '<span class="fa fa-star text-warning"></span>
@@ -163,7 +163,7 @@ include 'komponen/refresh.php';
                   <span class="fa fa-star text-warning"></span>
                   <span class="fa fa-star text-warning"></span>
                   <span class="fa fa-star text-warning"></span>'; 
-                  $banner_atas= '<div class="badge rounded-pill bg-danger position-absolute top-0 end-0 me-2 mt-2 fs--2 z-index-2">Hot</div>';
+                  $banner_atas= '<div class="badge rounded-pill bg-danger position-absolute top-0 end-0 me-2 mt-2 fs--2 z-index-2"><img src="hot.png" class="img" width="20px"> Hot</div>';
                 }
                 if ($rating == 0 ) {
                   $tampil_rating = '<span class="fa fa-star"></span>
