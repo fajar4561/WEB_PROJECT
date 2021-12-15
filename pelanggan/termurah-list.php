@@ -35,10 +35,11 @@ session_start();
                       <form class="row gx-2">
                         <div class="col-auto"><small>Sort by: </small></div>
                         <div class="col-auto">
-                          <select class="form-select form-select-sm" aria-label="Bulk actions">
-                            <option selected="">Best Match</option>
-                            <option value="Refund">Newest</option>
-                            <option value="Delete">Price</option>
+                          <select class="form-select form-select-sm" aria-label="Bulk actions" onchange="location = this.value;">
+                            <option value="termurah-list">Paling Murah</option>
+                            <option value="produk">Semua Produk</option>                            
+                            <option value="populer-list">Paling Populer</option>
+                            <option value="laku-list">Paling Laku</option>
                           </select>
                         </div>
                       </form>

@@ -1,5 +1,5 @@
 <?php
-$judul = 'App | Produk Termurah';
+$judul = 'App | Produk Populer';
 include 'komponen/header.php';
 include '../koneksi.php';
 include 'komponen/refresh.php';
@@ -36,15 +36,15 @@ session_start();
                         <div class="col-auto"><small>Sort by:</small></div>
                         <div class="col-auto">
                           <select class="form-select form-select-sm" aria-label="Bulk actions" onchange="location = this.value;">
-                            <option value="termurah">Paling Murah</option>
                             <option value="populer">Paling Populer</option>
-                            <option value="produk">Semua Produk</option>                            
+                            <option value="produk">Semua Produk</option>
+                            <option value="termurah">Paling Murah</option>
                             <option value="laku">Paling Laku</option>
                           </select>
                         </div>
                       </form>
                     </div>
-                    <div class="col-auto pe-0"> <a class="text-600 px-1" href="termurah-list" data-bs-toggle="tooltip" data-bs-placement="top" title="Tampilkan List"><span class="fas fa-list-ul"></span></a></div>
+                    <div class="col-auto pe-0"> <a class="text-600 px-1" href="populer-list" data-bs-toggle="tooltip" data-bs-placement="top" title="Tampilkan List"><span class="fas fa-list-ul"></span></a></div>
                   </div>
                 </div>
               </div>
@@ -61,11 +61,11 @@ session_start();
                 $previous = $halaman - 1;
                 $next = $halaman + 1;
 
-                $data = mysqli_query($koneksi,"SELECT * FROM produk ORDER BY harga ASC");
+                $data = mysqli_query($koneksi,"SELECT * FROM produk ORDER BY rating DESC");
                 $jumlah_data = mysqli_num_rows($data);
                 $total_halaman = ceil($jumlah_data / $batas);
 
-                $data_produk = mysqli_query($koneksi,"SELECT * FROM produk ORDER BY harga ASC LIMIT $halaman_awal, $batas");
+                $data_produk = mysqli_query($koneksi,"SELECT * FROM produk ORDER BY rating DESC LIMIT $halaman_awal, $batas");
                 $nomor = $halaman_awal+1;
                 while($d = mysqli_fetch_array($data_produk)){
 
