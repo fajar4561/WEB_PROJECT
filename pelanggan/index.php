@@ -21,9 +21,9 @@ include 'komponen/refresh.php';
 
         <div class="container">
           <div class="row flex-center pt-8 pt-lg-10 pb-lg-9 pb-xl-0">
-            <div class="col-md-11 col-lg-8 col-xl-4 pb-7 pb-xl-9 text-center text-xl-start"><a class="btn btn-outline-danger mb-4 fs--1 border-2 rounded-pill" href="produk"><span class="me-2" role="img" aria-label="Gift">🎁</span>Jelajahi Produk</a>
+            <div class="col-md-11 col-lg-8 col-xl-4 pb-7 pb-xl-9 text-center text-xl-start"><a class="btn btn-outline-danger mb-4 fs--1 border-2 rounded-pill" href="produk-list"><span class="me-2" role="img" aria-label="Gift">🎁</span>Jelajahi Produk</a>
               <h1 class="text-white fw-light">Shey <span class="typed-text fw-bold" data-typed-text='["aman","terpercaya","murah","Quality"]'></span><br />Sport Shop</h1>
-              <p class="lead text-white opacity-75">Menyediakan berbagai macam alat dan perlengkapan olahraga berkualitas dan murah demi memenuhi kebutuhan olah raga anda.</p><a class="btn btn-outline-light border-2 rounded-pill btn-lg mt-4 fs-0 py-2" href="produk">Halaman Produk<span class="fas fa-play ms-2" data-fa-transform="shrink-6 down-1"></span></a>
+              <p class="lead text-white opacity-75">Menyediakan berbagai macam alat dan perlengkapan olahraga berkualitas dan murah demi memenuhi kebutuhan olah raga anda.</p><a class="btn btn-outline-light border-2 rounded-pill btn-lg mt-4 fs-0 py-2" href="ulasan">Ulasan Produk<span class="fas fa-play ms-2" data-fa-transform="shrink-6 down-1"></span></a>
             </div>
             <div class="col-xl-7 offset-xl-1 align-self-end mt-4 mt-xl-0"><a class="img rounded" href="../index.html"><img class="img-fluid" src="" alt="" /></a></div>
           </div>

@@ -2,7 +2,6 @@
 $judul = 'App | checkout';
 include 'komponen/header.php';
 include '../koneksi.php';
-session_start();
 $today= date('Y-m-d');
 
 $penyebut = date('dmY');
