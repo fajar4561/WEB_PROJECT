@@ -81,28 +81,28 @@ include 'komponen/refresh.php';
             </div>
           </div>
           <div class="row flex-center mt-8">
-            <div class="col-md col-lg-5 col-xl-4 ps-lg-6"><img class="img-fluid px-6 px-md-0 rounded-circle" src="../fotoproduk/<?=$pecah['foto']?>" alt="" /></div>
+            <div class="col-md col-lg-5 col-xl-4 ps-lg-6"><a href="detail-produk.php?kode=<?=$pecah['kode_produk']?>"><img class="img-fluid px-6 px-md-0 rounded-circle" src="../fotoproduk/<?=$pecah['foto']?>" alt="" /></a></div>
             <div class="col-md col-lg-5 col-xl-4 mt-4 mt-md-0">
               <h5 class="text-danger"><span class="far fa-lightbulb me-2"></span>Produk Paling Murah</h5>
-              <h3><?=$pecah['nama_produk']?></h3>
+              <h3><a href="detail-produk.php?kode=<?=$pecah['kode_produk']?>" class="text-dark"><?=$pecah['nama_produk']?></a></h3>
               <p class="fs--1 mb-1">Harga: <strong class="text-success">Rp.<?=number_format($pecah['harga'])?></strong></p>
               <p style="white-space: pre-line;"><?=substr($pecah["deskripsi"],0,100) . ' <br><br><a href=detail-produk.php?kode='.$pecah["kode_produk"].'>READMORE</a>';?></p>
             </div>
           </div>
           <div class="row flex-center mt-7">
-            <div class="col-md col-lg-5 col-xl-4 pe-lg-6 order-md-2"><img class="img-fluid px-6 px-md-0 rounded-circle" src="../fotoproduk/<?=$pecah2['foto']?>" alt="" /></div>
+            <div class="col-md col-lg-5 col-xl-4 pe-lg-6 order-md-2"><a href="detail-produk.php?kode=<?=$pecah2['kode_produk']?>"><img class="img-fluid px-6 px-md-0 rounded-circle" src="../fotoproduk/<?=$pecah2['foto']?>" alt="" /></a></div>
             <div class="col-md col-lg-5 col-xl-4 mt-4 mt-md-0">
               <h5 class="text-info"> <span class="far fa-object-ungroup me-2"></span>Produk Paling Laku</h5>
-              <h3><?=$pecah2['nama_produk']?></h3>
+              <h3><a href="detail-produk.php?kode=<?=$pecah2['kode_produk']?>" class="text-dark"><?=$pecah2['nama_produk']?></a></h3>
               <p class="fs--1 mb-1">Harga: <strong class="text-success">Rp.<?=number_format($pecah2['harga'])?></strong></p>
               <p style="white-space: pre-line;"><?=substr($pecah2["deskripsi"],0,100) . ' <br><br><a href=detail-produk.php?kode='.$pecah2["kode_produk"].'>READMORE</a>';?></p>
             </div>
           </div>
           <div class="row flex-center mt-7">
-            <div class="col-md col-lg-5 col-xl-4 ps-lg-6"><img class="img-fluid px-6 px-md-0 rounded-circle" src="../fotoproduk/<?=$pecah3['foto']?>" alt="" /></div>
+            <div class="col-md col-lg-5 col-xl-4 ps-lg-6"><a href="detail-produk.php?kode=<?=$pecah3['kode_produk']?>"><img class="img-fluid px-6 px-md-0 rounded-circle" src="../fotoproduk/<?=$pecah3['foto']?>" alt="" /></a></div>
             <div class="col-md col-lg-5 col-xl-4 mt-4 mt-md-0">
               <h5 class="text-success"><span class="far fa-paper-plane me-2"></span>Produk Paling Populer</h5>
-              <h3><?=$pecah3['nama_produk']?></h3>
+              <h3><a href="detail-produk.php?kode=<?=$pecah3['kode_produk']?>" class="text-dark"><?=$pecah3['nama_produk']?></a></h3>
               <p class="fs--1 mb-1">Harga: <strong class="text-success">Rp.<?=number_format($pecah3['harga'])?></strong></p>
               <p style="white-space: pre-line;"><?=substr($pecah3["deskripsi"],0,100) . ' <br><br><a href=detail-produk.php?kode='.$pecah3["kode_produk"].'>READMORE</a>';?></p>
             </div>
