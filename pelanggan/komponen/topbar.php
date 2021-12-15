@@ -18,34 +18,27 @@
                   </div>
                   <div class="dropdown-menu border font-base start-0 mt-2 py-0 overflow-hidden w-100">
                     <div class="scrollbar list py-3" style="max-height: 24rem;">
-                      <h6 class="dropdown-header fw-medium text-uppercase px-card fs--2 pt-0 pb-2">Recently Browsed</h6><a class="dropdown-item fs--1 px-card py-1 hover-primary" href="../app/events/event-detail.html">
+                      <h6 class="dropdown-header fw-medium text-uppercase px-card fs--2 pt-0 pb-2">Recently Browsed</h6><a class="dropdown-item fs--1 px-card py-1 hover-primary" href="../pelanggan">
                         <div class="d-flex align-items-center">
                           <span class="fas fa-circle me-2 text-300 fs--2"></span>
 
-                          <div class="fw-normal title">Pages <span class="fas fa-chevron-right mx-1 text-500 fs--2" data-fa-transform="shrink-2"></span> Events</div>
-                        </div>
-                      </a>
-                      <a class="dropdown-item fs--1 px-card py-1 hover-primary" href="../app/e-commerce/customers.html">
-                        <div class="d-flex align-items-center">
-                          <span class="fas fa-circle me-2 text-300 fs--2"></span>
-
-                          <div class="fw-normal title">E-commerce <span class="fas fa-chevron-right mx-1 text-500 fs--2" data-fa-transform="shrink-2"></span> Customers</div>
+                          <div class="fw-normal title">Halaman <span class="fas fa-chevron-right mx-1 text-500 fs--2" data-fa-transform="shrink-2"></span> Beranda</div>
                         </div>
                       </a>
 
                       <hr class="bg-200 dark__bg-900" />
                       <h6 class="dropdown-header fw-medium text-uppercase px-card fs--2 pt-0 pb-2">Katagori Produk</h6>
-                      <a class="dropdown-item px-card py-1 fs-0" href="../app/e-commerce/customers.html">
+                      <a class="dropdown-item px-card py-1 fs-0" href="termurah-list">
                         <div class="d-flex align-items-center"><span class="badge fw-medium text-decoration-none me-2 badge-soft-warning">Termurah:</span>
                           <div class="flex-1 fs--1 title">Produk dengan harga termurah</div>
                         </div>
                       </a>
-                      <a class="dropdown-item px-card py-1 fs-0" href="../app/events/event-detail.html">
+                      <a class="dropdown-item px-card py-1 fs-0" href="populer-list">
                         <div class="d-flex align-items-center"><span class="badge fw-medium text-decoration-none me-2 badge-soft-success">Terpopuler:</span>
                           <div class="flex-1 fs--1 title">Produk Paling diminati</div>
                         </div>
                       </a>
-                      <a class="dropdown-item px-card py-1 fs-0" href="../app/e-commerce/product/product-grid.html">
+                      <a class="dropdown-item px-card py-1 fs-0" href="laku-list">
                         <div class="d-flex align-items-center"><span class="badge fw-medium text-decoration-none me-2 badge-soft-info">Terlaku:</span>
                           <div class="flex-1 fs--1 title">Produk paling laris</div>
                         </div>
