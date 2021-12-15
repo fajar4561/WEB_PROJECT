@@ -1,5 +1,5 @@
 <?php
-$judul = 'App | Beranda';
+$judul = 'App | Produk Termurah';
 include 'komponen/header.php';
 include '../koneksi.php';
 include 'komponen/refresh.php';
@@ -43,7 +43,7 @@ session_start();
                         </div>
                       </form>
                     </div>
-                    <div class="col-auto pe-0"><a class="text-600 px-1" href="produk" data-bs-toggle="tooltip" title="Tampilankan Grid"><span class="fas fa-th"></span></a></div>
+                    <div class="col-auto pe-0"><a class="text-600 px-1" href="termurah" data-bs-toggle="tooltip" title="Tampilankan Grid"><span class="fas fa-th"></span></a></div>
                   </div>
                 </div>
               </div>
@@ -61,11 +61,11 @@ session_start();
                 $previous = $halaman - 1;
                 $next = $halaman + 1;
 
-                $data = mysqli_query($koneksi,"SELECT * FROM produk ORDER BY nama_produk ASC");
+                $data = mysqli_query($koneksi,"SELECT * FROM produk ORDER BY harga ASC");
                 $jumlah_data = mysqli_num_rows($data);
                 $total_halaman = ceil($jumlah_data / $batas);
 
-                $data_produk = mysqli_query($koneksi,"SELECT * FROM produk ORDER BY nama_produk ASC LIMIT $halaman_awal, $batas");
+                $data_produk = mysqli_query($koneksi,"SELECT * FROM produk ORDER BY harga ASC LIMIT $halaman_awal, $batas");
                 $nomor = $halaman_awal+1;
                 while($d = mysqli_fetch_array($data_produk)){
                   

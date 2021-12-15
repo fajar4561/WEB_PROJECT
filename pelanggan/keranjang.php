@@ -53,7 +53,7 @@ echo "<script>location='produk';</script>";
                 <div class="col-md-auto">
                   <h5 class="mb-3 mb-md-0">Keranjang Belanja</h5>
                 </div>
-                <div class="col-md-auto"><a class="btn btn-sm btn-outline-secondary border-300 me-2" href="produk"> <span class="fas fa-chevron-left me-1" data-fa-transform="shrink-4"></span>Kembali belanja</a></div>
+                <div class="col-md-auto"><a class="btn btn-sm btn-outline-secondary border-300 me-2" href="javascript:window.history.go(-1);"> <span class="fas fa-chevron-left me-1" data-fa-transform="shrink-4"></span>Kembali belanja</a></div>
               </div>
             </div>
             <div class="card-body p-0">
